@@ -82,3 +82,4 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/heroku/bin:$PATH"
 PULSE_LATENCY_MSEC=60
 export GOPATH=~/Documents/Projects
+export BROWSER="firefox"
