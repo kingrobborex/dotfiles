@@ -29,7 +29,11 @@ set foldmethod =indent			" Fold based on indent level
 
 nnoremap <space> za				" Space Open/Closes folds
 
+" MISC
+set noerrorbells
+
 call plug#begin()
+    Plug    'captbaritone/better-indent-support-for-php-with-html'
     Plug    'ervandew/supertab'
     Plug    'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
     Plug    'skalnik/vim-vroom'
