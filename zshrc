@@ -1,85 +1,60 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.dotfiles/zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+# ~/.zshrc
 #
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# External {{{1
 
-# User configuration
+[ ! -f "$HOME/.rbenv/bin/rbenv" ] || eval "$(~/.rbenv/bin/rbenv init -)"
 
-export PATH="/usr/bin:/usr/local/sbin:/usr/local/bin:/home/robertjames/.composer/vendor/bin:/home/robertjames/.rbenv/bin:"
-# export MANPATH="/usr/local/man:$MANPATH"
+#}}}1
+# Prompt {{{1
 
-source $ZSH/oh-my-zsh.sh
+_git_prompt_info() {
+  case "$PWD" in
+    /net/*|/Volumes/*) return ;;
+  esac
+  if [ -d .svn ]; then
+    ref=.svn
+  else
+    ref=${$(git symbolic-ref HEAD 2> /dev/null)#refs/heads/} || \
+      ref=${$(git rev-parse HEAD 2>/dev/null)[1][1,7]} || \
+      return
+  fi
+  case "$TERM" in
+    *-256color)             branchcolor=$'\e[38;5;31m'   ;;
+    *-88color|rxvt-unicode) branchcolor=$'\e[38;5;22m'   ;;
+    xterm*)                 branchcolor=$'\e[00;94m'     ;;
+    *)                      branchcolor="$fg_bold[blue]" ;;
+  esac
+  print -Pn '(%%{$branchcolor%%}%20>..>$ref%<<%%{\e[00m%%})'
+}
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+autoload -Uz colors && colors
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [ -x "$HOME/bin/tpope-host" ]; then
+  hostcolor=$'\e['`tpope-host ansi`m
+else
+  hostcolor=$'\e[01;37m'
+fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+local usercolor="$fg_bold[yellow]"
+local dircolor="$fg_bold[blue]"
+# Use echotc Co?
+case "$TERM" in
+  *-256color)
+    usercolor=$'\e[38;5;184m'
+    dircolor=$'\e[38;5;27m'
+    ;;
+  *-88color|rxvt-unicode)
+    usercolor=$'\e[38;5;56m'
+    dircolor=$'\e[38;5;23m'
+    ;;
+esac
+[ $UID = '0' ] && usercolor="$fg_bold[white]"
+reset_color=$'\e[00m'
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+PROMPT="%{$usercolor%}%n%{$reset_color%}@%{${hostcolor}%}%m%{$reset_color%}:%{$dircolor%}%30<...<%~%<<%{$reset_color%}\$(_git_prompt_info)%# "
+RPS1="%(?..(%{"$'\e[01;35m'"%}%?%{$reset_color%}%)%<<)"
+setopt promptsubst
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-eval "$(rbenv init -)"
-export PATH="/usr/local/heroku/bin:$PATH"
-PULSE_LATENCY_MSEC=60
-export GOPATH=~/Documents/Projects
-export BROWSER="firefox"
+#}}}1
+

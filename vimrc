@@ -3,6 +3,8 @@ colorscheme desert
 
 syntax enable
 
+set completefunc=syntaxcomplete#Complete
+
 
 " TABS & SPACES
 set tabstop=2           " Number of visual spaces per TAB
@@ -37,6 +39,7 @@ call plug#begin()
     Plug    'ervandew/supertab'
     Plug    'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
     Plug    'skalnik/vim-vroom'
+    Plug    'sunaku/vim-ruby-minitest'
     Plug    'tpope/vim-bundler'
     Plug    'tpope/vim-endwise'
     Plug    'tpope/vim-fugitive'
