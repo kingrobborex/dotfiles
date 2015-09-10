@@ -33,6 +33,14 @@ nnoremap <space> za				" Space Open/Closes folds
 
 " MISC
 set noerrorbells
+set novisualbell
+set spell
+
+setlocal spell spelllang=en_gb
+
+if has("gui_running")
+  autocmd GUIEnter * set vb t_vb=
+endif
 
 call plug#begin()
     Plug    'captbaritone/better-indent-support-for-php-with-html'

@@ -1,23 +1,19 @@
-#! sh
-#
+# Use vim as the visual editor
+export VISUAL=vim
+export EDITOR=$VISUAL
 
+# Ensure dotfiles bin directory is loaded first
+export PATH="$HOME/.bin:/usr/local/sbin:$HOME/.rbenv/bin:$PATH"
 
-for dir in /usr/local/bin "$HOME/.rbenv/bin" "$HOME/.rbenv/shims" "$HOME/bin"; do
-  if [ -d "$dir" ]; then
-    PATH="""${dir}:`echo "$PATH"|sed -e "s#${dir}:##"`"
-  fi
-done
+# Load rbenv if available
+if which rbenv &>/dev/null ; then
+  eval "$(rbenv init - --no-rehash)"
+fi
 
-PATH=".git/safe/../../bin:`echo "$PATH"|sed -e 's,\.git/[^:]*bin:,,g'`"
+# Load phpenv if available
+if which phpenv &>/dev/null ; then
+  eval "$(phpenv init -)"
+fi
 
-for dir in /usr/lib/surfraw /var/lib/gems/1.9.1/bin /var/lib/gems/1.8/bin /usr/sbin /sbin; do
-  if [ -d "$dir" ]; then
-    case ":$PATH:" in
-      *:"$dir":*) ;;
-      *) PATH="$PATH:$dir" ;;
-    esac
-  fi
-done
-
-unset dir
-export PATH
+# Local config
+[[ -f ~/.zshenv.local ]] && source ~/.zshenv.local

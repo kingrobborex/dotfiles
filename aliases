@@ -1,0 +1,5 @@
+# Rails
+alias migrate="bundle exec rake db:migrate db:rollback && bundle exec rake db:migrate"
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
