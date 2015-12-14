@@ -49,7 +49,14 @@ let g:NERDTreeWinSize           = 20
 let g:NERDTreeShowGitStatus     = 1
 " let g:NERDTreeShowHidden        = 1
 
-" "
+" PHP
+let g:php_refactor_command      = 'php ~/.local/bin/refactor.phar'
+let g:relatedtest_open_command  = '<C-t>'
+let g:relatedtest_open_strategy = 'vsp'
+let g:relatedtest_php_tests     = "tests/"
+
+:set wildignore+=**/vendor/**
+
 map <Leader>t :!phpunit %<cr>
 set encoding=utf-8
 
@@ -64,6 +71,7 @@ call plug#begin()
   Plug  'editorconfig/editorconfig-vim'
   Plug  'ervandew/supertab'
   Plug  'joonty/vdebug'
+  Plug  'KabbAmine/gulp-vim'
   Plug  'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
   Plug  'skalnik/vim-vroom'
   Plug  'sunaku/vim-ruby-minitest'
@@ -73,6 +81,9 @@ call plug#begin()
   Plug  'tpope/vim-rails'
   Plug  'tpope/vim-rbenv'
   Plug  'tpope/vim-surround'
+  Plug  'vim-php/vim-composer'
+  Plug  'vim-php/vim-php-refactoring'
   Plug  'vim-ruby/vim-ruby'
+  Plug  'wdalmut/vim-relatedtest'
   Plug  'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
