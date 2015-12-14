@@ -44,8 +44,11 @@ setlocal spell spelllang=en_gb
 " NERDTREE
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree()) | q | endif
 
-let g:NERDTreeWinSize = 20
-let g:NERDTreeShowGitStatus = 1
+let g:NERDTreeAutoDeleteBuffer  = 0
+let g:NERDTreeMinimalUI         = 1
+let g:NERDTreeWinSize           = 20
+let g:NERDTreeShowGitStatus     = 1
+" let g:NERDTreeShowHidden        = 1
 
 " "
 map <Leader>t :!phpunit %<cr>
