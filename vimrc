@@ -71,11 +71,12 @@ call plug#begin()
   Plug  'editorconfig/editorconfig-vim'
   Plug  'ervandew/supertab'
   Plug  'joonty/vdebug'
-  Plug  'KabbAmine/gulp-vim'
+  Plug  'KabbAmine/gulp-vim',  { 'on' : ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
   Plug  'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
   Plug  'skalnik/vim-vroom'
   Plug  'sunaku/vim-ruby-minitest'
   Plug  'tpope/vim-bundler'
+  Plug  'tpope/vim-dispatch'
   Plug  'tpope/vim-endwise'
   Plug  'tpope/vim-fugitive'
   Plug  'tpope/vim-rails'
