@@ -9,9 +9,11 @@ export PATH="$HOME/.local/bin:$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+export PATH="$HOME/.phpenv/bin:$PATH"
+eval "$(phpenv init -)"
+
 
 # Local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
-
 
 
