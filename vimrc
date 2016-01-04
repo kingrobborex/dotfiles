@@ -70,6 +70,8 @@ call plug#begin()
   Plug  'ervandew/supertab'
   Plug  'joonty/vdebug'
   Plug  'KabbAmine/gulp-vim',  { 'on' : ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
+  Plug  'mattn/emmet-vim'
+  Plug  'mustache/vim-mustache-handlebars', { 'for' : 'hbs' }
   Plug  'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
   Plug  'skalnik/vim-vroom'
   Plug  'sunaku/vim-ruby-minitest'
