@@ -79,22 +79,22 @@ call plug#begin()
   Plug  'joonty/vdebug'
   Plug  'KabbAmine/gulp-vim',               { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
   Plug  'mattn/emmet-vim',                  { 'for': ['mustache', 'blade', 'html', 'php'] }
-  Plug  'mattn/gist-vim',                   { 'on': 'Gist' }
+  Plug 'mattn/webapi-vim' | Plug  'mattn/gist-vim',                   { 'on': 'Gist'}
   Plug  'mustache/vim-mustache-handlebars', { 'for': ['handlebars', 'mustache'] }
-  Plug  'patrickkettner/bower.vim'
+  Plug  'patrickkettner/bower.vim',         { 'on': 'Bower' }
   Plug  'scrooloose/nerdtree',              { 'on': 'NERDTreeToggle' }
   Plug  'skalnik/vim-vroom'
-  Plug  'sunaku/vim-ruby-minitest'
+  Plug  'sunaku/vim-ruby-minitest',         { 'for': ['ruby'] }
   Plug  'tpope/vim-bundler'
   Plug  'tpope/vim-dispatch'
   Plug  'tpope/vim-endwise'
   Plug  'tpope/vim-fugitive'
-  Plug  'tpope/vim-rails'
+  Plug  'tpope/vim-rails',                  { 'for': ['ruby'] }
   Plug  'tpope/vim-rbenv'
   Plug  'tpope/vim-surround'
-  Plug  'vim-php/vim-composer'
-  Plug  'vim-php/vim-php-refactoring'
-  Plug  'vim-ruby/vim-ruby'
+  Plug  'vim-php/vim-composer',             { 'on': ['ComposerRun', 'ComposerGet', 'ComposerInstall', 'ComposerInit', 'ComposerRequireFunc', 'ComposerJSON', 'ComposerKnowWhereCurrentFileIs'] }
+  Plug  'vim-php/vim-php-refactoring',      { 'for': ['php'] }
+  Plug  'vim-ruby/vim-ruby',                { 'for': ['ruby'] }
   Plug  'vim-scripts/npm.vim'
   Plug  'wdalmut/vim-relatedtest'
   Plug  'Xuyuanp/nerdtree-git-plugin'
