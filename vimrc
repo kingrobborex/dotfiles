@@ -37,6 +37,10 @@ set spell
 
 setlocal spell spelllang=en_gb
 
+" GIST
+let g:gist_detect_filetype      = 1
+let g:gist_post_private         = 1
+
 " MUSTACHE & HANDLEBARS
 let g:mustache_abbreviations    = 1
 
@@ -75,6 +79,7 @@ call plug#begin()
   Plug  'joonty/vdebug'
   Plug  'KabbAmine/gulp-vim',               { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
   Plug  'mattn/emmet-vim',                  { 'for': ['mustache', 'blade', 'html', 'php'] }
+  Plug  'mattn/gist-vim',                   { 'on': 'Gist' }
   Plug  'mustache/vim-mustache-handlebars', { 'for': ['handlebars', 'mustache'] }
   Plug  'patrickkettner/bower.vim'
   Plug  'scrooloose/nerdtree',              { 'on': 'NERDTreeToggle' }
