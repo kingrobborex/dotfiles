@@ -20,17 +20,25 @@ set $ws1 1: media
 set $ws2 2: main
 set $ws3 3: chat
 set $ws4 4: virt
-set $ws5 5: 
+set $ws5 5: game
 set $ws6 6: 
 set $ws7 7: tor
 
-assign [class="VLC"] $ws1
+assign [class="^VLC$"] $ws1
 assign [class="^Firefox$"] $ws2
 assign [class="^Thunderbird$"] $ws3
 assign [class="^Skype$"] $ws3
 assign [class="^Irssi$"] $ws3
 assign [class="Tor"] $ws7
 assign [class="VirtualBox"] $ws4
+assign [class="^Steam$"] $ws5
+
+####################
+# Specific styling #
+####################
+for_window [window_role="pop-up"] floating enable
+for_window [title="Calculator"] floating enable
+for_window [title="Calculator"] border 1pixel
 
 #####################
 # Audio Keybindings #
@@ -43,6 +51,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
+###############
+# Screenshots #
+###############
+bindsym Print exec scrot -e 'mv $f ~/Pictures/Scrot/$f'
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

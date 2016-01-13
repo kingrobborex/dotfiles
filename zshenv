@@ -12,6 +12,7 @@ eval "$(rbenv init -)"
 export PATH="$HOME/.phpenv/bin:$PATH"
 eval "$(phpenv init -)"
 
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 
 # Local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local

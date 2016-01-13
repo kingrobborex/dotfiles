@@ -1,9 +1,6 @@
 set nocompatible          " Disable vi-compatibility
 set linespace=8
 
-" COLORS
-syntax enable
-
 set completefunc=syntaxcomplete#Complete
 
 " TABS & SPACES
@@ -40,6 +37,9 @@ set spell
 
 setlocal spell spelllang=en_gb
 
+" MUSTACHE & HANDLEBARS
+let g:mustache_abbreviations    = 1
+
 " NERDTREE
 let g:NERDTreeAutoDeleteBuffer  = 0
 let g:NERDTreeMinimalUI         = 1
@@ -65,14 +65,19 @@ if has("gui_running")
 endif
 
 call plug#begin()
+" Colors
+  Plug  'fent/vim-frozen'
+  Plug  'altercation/vim-colors-solarized'
+
   Plug  'captbaritone/better-indent-support-for-php-with-html'
   Plug  'editorconfig/editorconfig-vim'
   Plug  'ervandew/supertab'
   Plug  'joonty/vdebug'
-  Plug  'KabbAmine/gulp-vim',  { 'on' : ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
-  Plug  'mattn/emmet-vim'
-  Plug  'mustache/vim-mustache-handlebars', { 'for' : 'hbs' }
-  Plug  'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
+  Plug  'KabbAmine/gulp-vim',               { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
+  Plug  'mattn/emmet-vim',                  { 'for': ['mustache', 'blade', 'html', 'php'] }
+  Plug  'mustache/vim-mustache-handlebars', { 'for': ['handlebars', 'mustache'] }
+  Plug  'patrickkettner/bower.vim'
+  Plug  'scrooloose/nerdtree',              { 'on': 'NERDTreeToggle' }
   Plug  'skalnik/vim-vroom'
   Plug  'sunaku/vim-ruby-minitest'
   Plug  'tpope/vim-bundler'
@@ -85,6 +90,18 @@ call plug#begin()
   Plug  'vim-php/vim-composer'
   Plug  'vim-php/vim-php-refactoring'
   Plug  'vim-ruby/vim-ruby'
+  Plug  'vim-scripts/npm.vim'
   Plug  'wdalmut/vim-relatedtest'
   Plug  'Xuyuanp/nerdtree-git-plugin'
+
+  " Unmanaged
+  Plug  '~/Documents/Projects/vim-laravel'
 call plug#end()
+
+" COLORS
+syntax enable
+syntax on
+"set background=dark
+colorscheme frozen
+
+
