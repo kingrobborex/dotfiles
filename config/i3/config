@@ -4,13 +4,24 @@ font pango:Terminus 12px
 
 
 #############
-# Autostart #
+# Startup   #
 #############
+exec --no-startup-id pulseaudio --start
+exec --no-startup-id xset -b
+exec --no-startup-id hsetroot -tile ~/Pictures/background.png
+exec --no-startup-id compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -1 0 -r 3 -D2 -m 0.88
+exec_always --no-startup-id parcellite
+
+#############
+# AUTOSTART #
+#############
+
 exec --no-startup-id firefox-aurora
 exec --no-startup-id thunderbird
 exec --no-startup-id skype
+exec --no-startup-id xterm -name irssi irssi
 exec --no-startup-id vlc
-exec pulseaudio --start
+exec --no-startup-id xflux -l 0.2 -g 51.1
 
 
 ##############
@@ -21,13 +32,15 @@ set $ws2 2: main
 set $ws3 3: chat
 set $ws4 4: virt
 set $ws5 5: game
-set $ws6 6: 
+set $ws6 6:
 set $ws7 7: tor
 
 assign [class="^VLC$"] $ws1
 assign [class="^Firefox$"] $ws2
+assign [class="^Irssi$"] $ws2
 assign [class="^Thunderbird$"] $ws3
 assign [class="^Skype$"] $ws3
+assign [class="^Stremio$"] $ws1
 assign [class="^Irssi$"] $ws3
 assign [class="Tor"] $ws7
 assign [class="VirtualBox"] $ws4
@@ -43,9 +56,9 @@ for_window [title="Calculator"] border 1pixel
 #####################
 # Audio Keybindings #
 #####################
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '5%+'"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '5%-'"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+bindsym XF86AudioMute exec amixer sset Master toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
@@ -54,8 +67,7 @@ bindsym XF86AudioStop exec playerctl stop
 ###############
 # Screenshots #
 ###############
-bindsym Print exec scrot -e 'mv $f ~/Pictures/Scrot/$f'
-
+ bindsym Print exec scrot '%F--%I:%M:%S:%p--$wx$h--scrot.png' -e 'mv $f ~/Pictures/Scrot/'
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -203,7 +215,5 @@ bar {
    colors {
     background #333333
     statusline #ffffff
-
    }
-
 }
