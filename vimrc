@@ -72,15 +72,12 @@ call plug#begin()
 " Colors
   Plug  'fent/vim-frozen'
   Plug  'altercation/vim-colors-solarized'
-
-  Plug  'captbaritone/better-indent-support-for-php-with-html'
   Plug  'editorconfig/editorconfig-vim'
   Plug  'ervandew/supertab'
   Plug  'joonty/vdebug'
   Plug  'KabbAmine/gulp-vim',               { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
-  Plug  'mattn/emmet-vim',                  { 'for': ['mustache', 'blade', 'html', 'php'] }
+  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'erb'] }
   Plug 'mattn/webapi-vim' | Plug  'mattn/gist-vim',                   { 'on': 'Gist'}
-  Plug  'mustache/vim-mustache-handlebars', { 'for': ['handlebars', 'mustache'] }
   Plug  'patrickkettner/bower.vim',         { 'on': 'Bower' }
   Plug  'scrooloose/nerdtree',              { 'on': 'NERDTreeToggle' }
   Plug  'skalnik/vim-vroom'
@@ -92,15 +89,10 @@ call plug#begin()
   Plug  'tpope/vim-rails',                  { 'for': ['ruby'] }
   Plug  'tpope/vim-rbenv'
   Plug  'tpope/vim-surround'
-  Plug  'vim-php/vim-composer',             { 'on': ['ComposerRun', 'ComposerGet', 'ComposerInstall', 'ComposerInit', 'ComposerRequireFunc', 'ComposerJSON', 'ComposerKnowWhereCurrentFileIs'] }
-  Plug  'vim-php/vim-php-refactoring',      { 'for': ['php'] }
   Plug  'vim-ruby/vim-ruby',                { 'for': ['ruby'] }
   Plug  'vim-scripts/npm.vim'
   Plug  'wdalmut/vim-relatedtest'
   Plug  'Xuyuanp/nerdtree-git-plugin'
-
-  " Unmanaged
-  Plug  '~/Documents/Projects/vim-laravel'
 call plug#end()
 
 " COLORS
