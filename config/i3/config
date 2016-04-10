@@ -10,13 +10,12 @@ exec --no-startup-id pulseaudio --start
 exec --no-startup-id xset -b
 exec --no-startup-id hsetroot -tile ~/Pictures/background.png
 exec --no-startup-id compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -1 0 -r 3 -D2 -m 0.88
-exec_always --no-startup-id parcellite
 
 #############
 # AUTOSTART #
 #############
 
-exec --no-startup-id firefox-aurora
+exec --no-startup-id firefox
 exec --no-startup-id thunderbird
 exec --no-startup-id skype
 exec --no-startup-id xterm -name irssi irssi
@@ -37,11 +36,12 @@ set $ws7 7: tor
 
 assign [class="^VLC$"] $ws1
 assign [class="^Firefox$"] $ws2
-assign [class="^Irssi$"] $ws2
+assign [class="^irssi$"] $ws3
 assign [class="^Thunderbird$"] $ws3
 assign [class="^Skype$"] $ws3
 assign [class="^Stremio$"] $ws1
-assign [class="^Irssi$"] $ws3
+assign [class="^Popcorn$"] $ws1
+assign [class="^irssi$"] $ws3
 assign [class="Tor"] $ws7
 assign [class="VirtualBox"] $ws4
 assign [class="^Steam$"] $ws5
