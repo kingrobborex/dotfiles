@@ -1,7 +1,28 @@
+#############
+# Variables
+#############
+
 set $mod Mod4
 
-font pango:Terminus 12px
+##############
+# Workspaces #
+##############
+set $ws1 1: media
+set $ws2 2: main
+set $ws3 3: chat
+set $ws4 4: virt
+set $ws5 5: game
+set $ws6 6: phot
+set $ws7 7: tor
 
+
+#############
+# General
+#############
+
+font pango:Terminus  12px
+focus_follows_mouse  no
+force_focus_wrapping yes
 
 #############
 # Startup   #
@@ -22,29 +43,18 @@ exec --no-startup-id xterm -name irssi irssi
 exec --no-startup-id vlc
 exec --no-startup-id xflux -l 0.2 -g 51.1
 
-
-##############
-# Workspaces #
-##############
-set $ws1 1: media
-set $ws2 2: main
-set $ws3 3: chat
-set $ws4 4: virt
-set $ws5 5: game
-set $ws6 6:
-set $ws7 7: tor
-
-assign [class="^VLC$"] $ws1
-assign [class="^Firefox$"] $ws2
-assign [class="^irssi$"] $ws3
+assign [class="^VLC$"]         $ws1
+assign [class="^Firefox$"]     $ws2
+assign [class="^irssi$"]       $ws3
 assign [class="^Thunderbird$"] $ws3
-assign [class="^Skype$"] $ws3
-assign [class="^Stremio$"] $ws1
-assign [class="^Popcorn$"] $ws1
-assign [class="^irssi$"] $ws3
-assign [class="Tor"] $ws7
-assign [class="VirtualBox"] $ws4
-assign [class="^Steam$"] $ws5
+assign [class="^Skype$"]       $ws3
+assign [class="^Stremio$"]     $ws1
+assign [class="^Popcorn$"]     $ws1
+assign [class="^irssi$"]       $ws3
+assign [class="Tor"]           $ws7
+assign [class="VirtualBox"]    $ws4
+assign [class="^Steam$"]       $ws5
+assign [class="^Sopcast$"]     $ws1
 
 ####################
 # Specific styling #
@@ -108,10 +118,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# split screen in horizontal and vertical
 bindsym $mod+h split h
-
-# split in vertical orientation
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
@@ -129,10 +137,11 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
+bindsym $mod+c focus child
 
-# focus the child container
-#bindsym $mod+d focus child
+# move container to next display
+# bindsym $mod+semicolon move workspace to output right
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
