@@ -52,6 +52,35 @@ syntax on                 " Syntax Highlighting
 set background=dark       " Colorscheme
 colorscheme Tomorrow-Night
 
+if has("gui_running")
+  set guioptions-=T           " Removes top toolbar
+  set guioptions-=r           " Removes right hand scrollbar
+  set go-=L                   " Removes left hand scroll bar
+  colorscheme duotone-darksea
+endif
+
+"" General Settings
+
+let mapleader=","
+let maplocalleader="+"
+
+set encoding=utf-9
+set fileencoding=utf-8
+set modelines=0               " Disable for security
+set autowrite                 " Save on file switch
+set autoread                  " Reload on external change
+set conceallevel=0
+
+" Session Management
+let g:session_directory = "~/.vim/sessions"
+let g:session_autoload  = "no"
+let g:session_autosave  = "no"
+let g:session_command_aliases = 1
+nnoremap <leader>so :OpenSession
+nnoremap <leader>ss :SaveSession
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sx :CloseSession<CR>
+
 set linespace=2
 
 " TABS & SPACES
@@ -109,9 +138,4 @@ let g:NERDTreeShowGitStatus     = 1
 
 set encoding=utf-8
 
-if has("gui_running")
-  set guioptions-=T       " Removes top toolbar
-  set guioptions-=r       " Removes right hand scrollbar
-  set go-=L               " Removes left hand scroll bar
-endif
 
