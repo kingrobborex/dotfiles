@@ -81,6 +81,15 @@ nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sx :CloseSession<CR>
 
+" Backup Management
+set undodir=$HOME/.vim/tmp/undo//
+set backupdir=$HOME/.vim/tmp/backup//
+set directory=$HOME/.vim/tmp/swap//
+set backupskip=/tmp/*,/private/tmp/*
+set backup
+set writebackup
+set noswapfile
+
 set linespace=2
 
 " TABS & SPACES
