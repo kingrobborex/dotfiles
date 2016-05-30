@@ -1,3 +1,43 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+" Colors
+  Plug  'fent/vim-frozen'
+  Plug  'altercation/vim-colors-solarized'
+
+  " System
+  Plug  'editorconfig/editorconfig-vim'
+  Plug  'KabbAmine/gulp-vim',               { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
+  Plug  'mattn/webapi-vim' | Plug  'mattn/gist-vim',                   { 'on': 'Gist'}
+  Plug  'patrickkettner/bower.vim',         { 'on': 'Bower' }
+  Plug  'tpope/vim-dispatch'
+  Plug  'tpope/vim-endwise'
+  Plug  'tpope/vim-fugitive'
+  Plug  'tpope/vim-surround'
+  Plug  'vim-scripts/npm.vim'
+
+  " UI
+  Plug  'ervandew/supertab'
+  Plug  'scrooloose/nerdtree',              { 'on': 'NERDTreeToggle' }
+  Plug  'Xuyuanp/nerdtree-git-plugin'
+
+  " HTML
+  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'erb'] }
+
+  " Ruby / Rails
+  Plug  'skalnik/vim-vroom'
+  Plug  'sunaku/vim-ruby-minitest',         { 'for': ['ruby'] }
+  Plug  'tpope/vim-bundler'
+  Plug  'tpope/vim-rails',                  { 'for': ['ruby'] }, { 'on': ['Rails'] }
+  Plug  'tpope/vim-rbenv'
+  Plug  'vim-ruby/vim-ruby',                { 'for': ['ruby'] }
+
+call plug#end()
+
 set nocompatible          " Disable vi-compatibility
 set linespace=8
 
@@ -37,6 +77,9 @@ set spell
 
 setlocal spell spelllang=en_gb
 
+
+"" Plugins
+
 " GIST
 let g:gist_detect_filetype      = 1
 let g:gist_post_private         = 1
@@ -68,32 +111,7 @@ if has("gui_running")
   set go-=L               " Removes left hand scroll bar
 endif
 
-call plug#begin()
-" Colors
-  Plug  'fent/vim-frozen'
-  Plug  'altercation/vim-colors-solarized'
-  Plug  'editorconfig/editorconfig-vim'
-  Plug  'ervandew/supertab'
-  Plug  'joonty/vdebug'
-  Plug  'KabbAmine/gulp-vim',               { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
-  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'erb'] }
-  Plug 'mattn/webapi-vim' | Plug  'mattn/gist-vim',                   { 'on': 'Gist'}
-  Plug  'patrickkettner/bower.vim',         { 'on': 'Bower' }
-  Plug  'scrooloose/nerdtree',              { 'on': 'NERDTreeToggle' }
-  Plug  'skalnik/vim-vroom'
-  Plug  'sunaku/vim-ruby-minitest',         { 'for': ['ruby'] }
-  Plug  'tpope/vim-bundler'
-  Plug  'tpope/vim-dispatch'
-  Plug  'tpope/vim-endwise'
-  Plug  'tpope/vim-fugitive'
-  Plug  'tpope/vim-rails',                  { 'for': ['ruby'] }
-  Plug  'tpope/vim-rbenv'
-  Plug  'tpope/vim-surround'
-  Plug  'vim-ruby/vim-ruby',                { 'for': ['ruby'] }
-  Plug  'vim-scripts/npm.vim'
-  Plug  'wdalmut/vim-relatedtest'
-  Plug  'Xuyuanp/nerdtree-git-plugin'
-call plug#end()
+
 
 " COLORS
 syntax enable
