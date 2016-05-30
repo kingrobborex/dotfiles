@@ -13,8 +13,10 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " Colors
-  Plug  'fent/vim-frozen'
-  Plug  'altercation/vim-colors-solarized'
+  Plug  'flazz/vim-colorschemes'
+  Plug  'NLKNguyen/papercolor-theme'
+  Plug  'AlessandroYorba/Alduin'
+  Plug  'ap/vim-css-color'
 
   " System
   Plug  'editorconfig/editorconfig-vim'
@@ -64,7 +66,7 @@ endif
 let mapleader=","
 let maplocalleader="+"
 
-set encoding=utf-9
+set encoding=utf-8
 set fileencoding=utf-8
 set modelines=0                 " Disable for security
 set autowrite                   " Enable save on file switch
@@ -85,24 +87,61 @@ set ttyfast                     " Enable Fast terminal connection
 set laststatus=2                " Enable status line
 set shortmess=ao0tI             " Welcome screen (e.g. no welcome message)
 set t_Co=256                    " 256 Colours
-set lazyredraw                  " Disable refresh while executing a macro
+set lazyredraw                  " Disable
+let g:javascript_conceal_super          = "Ω"refresh while executing a macro
 set showcmd                     " Show partially completed commands
 set showmode                    " Show mode
 set mousehide                   " Hide mouse while typing
 set mouse=a ttymouse=xterm2     " Enable mouse in terminal mode
 set synmaxcol=800               " Disable syntax highlighting 800 chars.
-set timeoutlen=500              " Timeout for <leader>
+set timeoutlen=500              " Timeout for <leader
+set scrolloff=3                 " Keep 3 lines of context
+set virtualedit=all             " Enable positioning of cursor where no character is
+set key=                        " Remove fixed key
+set cryptmethod=blowfish        " Set encryption type
+set textwidth=0                 " Disable line breaks
+set showfulltag                 " Show full tag when autocompleting
+set fillchars=diff:⣿,vert:│     " Statusline charactors
+set diffopt+=iwhite             " Ignore whitespace in DIFFs
+set list                        " Show invisibles (tabs, line endings etc.)
+set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:.,extends:❯,precedes:❮ " Choose symbols to show invisibles
+set showbreak=+                 " Show line breaks
+set splitbelow                  " Split below the current window
+set splitright                  " Split right of the current window
 
-" Session Management
-let g:session_directory = "~/.vim/sessions"
-let g:session_autoload  = "no"
-let g:session_autosave  = "no"
-let g:session_command_aliases = 1
-nnoremap <leader>so :OpenSession
-nnoremap <leader>ss :SaveSession
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sx :CloseSession<CR>
-" sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,resize,slash,tabpages,unix,winpos,winsize
+" Spell check
+set spelllang=en_gb
+set dictionary+=~/.vim/dictionary/en_user.txt
+set dictionary+=~/.vim/dictionary/en_neu.txt
+set dictionary+=~/.vim/dictionary/en_gb.txt
+set thesaurus+=~/.vim/thesaurus/en_user.txt
+set thesaurus+=~/.vim/thesaurus/en_openthesaurus.txt
+set complete+=kspell
+
+set wildmenu                    " Enable better commandline completion
+set wildmode=list:longest,list:full   " Complete files like shell
+
+" Ignore stuff
+set wildignore+=*.gem,gems/**
+set wildignore+=*/tmp/**
+set wildignore+=*/htdocs/css/v/**,*/htdocs/js/v/**
+set wildignore+=*/vendor/ruby/**
+set wildignore+=*.sqlite3,*.db
+set wildignore+=*.png,*.gif,*.jpeg,*.jpg,*.tiff,*.psd
+set wildignore+=*.pdf,*.graffle
+set wildignore+=*.zip,*.tar,*.tar.gz
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so
+set wildignore+=*.doc,*.docx,*.xls,*.xlsx,*.ppt,*.pptx,*.gsheet
+set wildignore+=*.mp4,*.mov,*.m4v,*.mp3
+set wildignore+=*.dmg
+set wildignore+=*.sw?
+set wildignore+=.DS_Store,Icon
+set wildignore+=*.pages
+set wildignore+=*/vendor/bundle/**
+set wildignore+=*/dist/**
+set wildignore+=*/build/assets/**,*/build/development/**,*/build/production/**
+set wildignore+=*/node_modules/**
+set wildignore+=*/bower_components/**,*/_bower_components/**
 
 " Backup Management
 set undodir=$HOME/.vim/tmp/undo//
@@ -141,24 +180,189 @@ set wrapscan              " Wrap search at end/beggining of file
 " Folding
 set foldenable					  " Enable folding
 set foldcolumn=0          " Disable foldcolum
-set foldmethod =marker		" Fold based on marker
+set foldmethod=marker		  " Fold based on marker
 set foldlevelstart=20
 
 nnoremap <space> za				" Space Open/Closes folds
 
+nnoremap gp `[v`]
+nnoremap gy `[v`]y
+
+nnoremap <leader>ra :tabdo exec "windo e!"
+
+" Session Management
+let g:session_directory = "~/.vim/sessions"
+let g:session_autoload  = "no"
+let g:session_autosave  = "no"
+let g:session_command_aliases = 1
+nnoremap <leader>so :OpenSession
+nnoremap <leader>ss :SaveSession
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sx :CloseSession<CR>
+" sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,resize,slash,tabpages,unix,winpos,winsize
+
+"" Mapping
+
+" Unmap arrow keys
+noremap <down> <Nop>
+noremap <left> <Nop>
+noremap <right> <Nop>
+noremap <up> <Nop>
+inoremap <down> <Nop>
+inoremap <left> <Nop>
+inoremap <right> <Nop>
+inoremap <up> <Nop>
+vnoremap <down> <Nop>
+vnoremap <left> <Nop>
+vnoremap <right> <Nop>
+vnoremap <up> <Nop>
+
+" Keep the window centered
+noremap G Gzzzv
+noremap n nzzzv
+noremap N Nzzzv
+noremap } }zzzv
+noremap { {zzzv
+
+" Close all buffers
+nnoremap XX :qa<CR>
+
+" VimDiff
+nnoremap <leader>dj ]c
+nnoremap <leader>dk [c
+
+" Normal mode - add lines
+nnoremap gn o<ESC>k
+nnoremap gN O<ESC>j
+
+" Change to the folder of the current file
+nnoremap <silent> <leader>ccc :cd %:p:h<CR>:pwd<CR>
+
+" Toggle wrap
+nnoremap <leader>tw :call ToggleWrap()<CR>
+
+" Extended TextObjects
+" http://connermcd.com/blog/2012/10/01/extending-vim%27s-text-objects/
+"
+" Not sure what this really is but lets try it.
+let pairs = { ":" : ":",
+      \ "." : ".",
+      \ "<bar>" : "<bar>",
+      \ "*" : "*",
+      \ "-" : "-",
+      \ "_" : "_" }
+
+for [key, value] in items(pairs)
+  exe "nnoremap ci".key." T".key."ct".value
+  exe "nnoremap ca".key." F".key."cf".value
+  exe "nnoremap vi".key." T".key."vt".value
+  exe "nnoremap va".key." F".key."vf".value
+  exe "nnoremap di".key." T".key."dt".value
+  exe "nnoremap da".key." F".key."df".value
+  exe "nnoremap yi".key." T".key."yt".value
+  exe "nnoremap ya".key." F".key."yf".value
+endfor
+
+" Faster linewise scrolling
+noremap <C-e> 3<C-e>
+noremap <C-y> 3<C-y>
+
+" Escape/Unescape HTML entities
+noremap <leader>he :call HtmlEscape()<CR>
+noremap <leader>hue :call HtmlEscape()<CR>
+
+" Open the current file with Firefox, Chrome or Safari
+noremap <silent> <leader>ff :! open -a firefox %:p<CR>
+noremap <silent> <leader>gc :! open -a google\ chrome %:p<CR>
+" noremap <silent> <leader>sf :! open -a safari.app %:p<CR>
+
+" Quick toggle between buffers
+noremap <leader>j :b#<CR>
+
+" Command mode
+nnoremap <space> :
+
+" Set spell checker to `s`
+" zg (good), zG (good temp), zw (wrong), zW (wrong temp)
+nnoremap <silent> <leader>s :set spell!<CR>
+
+" Open .vimrc in new buffer, reload .vimrc
+nnoremap <leader>v :e $MYVIMRC<CR>
+nnoremap <leader>vb :e ~/.vimrc.bundles<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" Enlarge/shrink splits
+noremap <kPlus> <C-w>+
+noremap <kMinus> <C-w>-
+noremap <kDivide> <C-w><
+noremap <kMultiply> <C-w>>
+
+" Indentation in VISUAL mode
+vnoremap > >gv
+vnoremap < <gv
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+" Open a quickfix window for the last search
+nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copent<CR>
+
+" Map ALT-Tab to auto complete
+inoremap <A-Tab> <C-N>
+inoremap <A-S-Tab> <C-P>
+
+" Complete all buffers
+set complete=.,w,b,u,t
+set completeopt=longest,menuone,preview
+
+" Delete all buffers
+nnoremap <silent> <leader>da :exec "1," . bufnr('$') . "bd"<CR>
+
+" Toggle set list
+nnoremap <leader>1 :set list!<CR>
+
+" Mapping for easier OmniCompletion
+inoremap <C-]> <C-X><C-]>
+inoremap <C-F> <C-X><C-F>
+inoremap <C-D> <C-X><C-D>
+inoremap <C-L> <C-X><C-L>
+inoremap <C-O> <C-X><C-O>
+
+" Indent the whole source code
+nnoremap <leader>f gg=G
+
+
 "" Plugins
 
-" GIST
-let g:gist_detect_filetype      = 1
-let g:gist_post_private         = 1
+" Emmet
+autocmd FileType html imap <tab> <plug>(emmet-expand-abbr)
+autocmd FileType eruby imap <tab> <plug>(emmet-expand-abbr)
+autocmd FileType css imap <tab> <plug>(emmet-expand-abbr)
+autocmd FileType scss imap <tab> <plug>(emmet-expand-abbr)
 
-" MUSTACHE & HANDLEBARS
-let g:mustache_abbreviations    = 1
+" Gist
+let g:gist_clip_command              = 'pbcopy'
+let g:gist_detect_filetype           = 1
+let g:gist_post_private              = 1
+let g:gist_open_browser_after_post   = 1
+let g:gist_use_password_in_gitconfig = 0
 
-" NERDTREE
+" Nerdtree
 let g:NERDTreeAutoDeleteBuffer  = 0
 let g:NERDTreeMinimalUI         = 1
 let g:NERDTreeWinSize           = 20
 let g:NERDTreeShowGitStatus     = 1
-" let g:NERDTreeShowHidden        = 1
 
+"" Functions
+
+" Escape HTML
+function! HtmlEscape()
+  silent s/&/\&amp;/eg
+  silent s/</\&lt;/eg
+  silent s/>/\&gt;/eg
+endfunction
+
+function! HtmlUnEscape()
+  silent s/&lt;/</eg
+  silent s/&gt;/>/eg
+  silent s/&amp;/\&/eg
+endfunction
