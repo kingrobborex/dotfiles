@@ -1,3 +1,10 @@
+" Basic
+if &compatible
+  set nocompatible
+endif
+
+filetype off
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -38,10 +45,14 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-set nocompatible          " Disable vi-compatibility
-set linespace=8
+filetype plugin indent on
 
-set completefunc=syntaxcomplete#Complete
+syntax on                 " Syntax Highlighting
+
+set background=dark       " Colorscheme
+colorscheme Tomorrow-Night
+
+set linespace=2
 
 " TABS & SPACES
 set tabstop=2             " Number of visual spaces per TAB
@@ -94,15 +105,8 @@ let g:NERDTreeWinSize           = 20
 let g:NERDTreeShowGitStatus     = 1
 " let g:NERDTreeShowHidden        = 1
 
-" PHP
-let g:php_refactor_command      = 'php ~/.local/bin/refactor.phar'
-let g:relatedtest_open_command  = '<C-t>'
-let g:relatedtest_open_strategy = 'vsp'
-let g:relatedtest_php_tests     = "tests/"
-
 :set wildignore+=**/vendor/**
 
-map <Leader>t :!phpunit %<cr>
 set encoding=utf-8
 
 if has("gui_running")
@@ -110,13 +114,4 @@ if has("gui_running")
   set guioptions-=r       " Removes right hand scrollbar
   set go-=L               " Removes left hand scroll bar
 endif
-
-
-
-" COLORS
-syntax enable
-syntax on
-"set background=dark
-colorscheme frozen
-
 
