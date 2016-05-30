@@ -66,10 +66,32 @@ let maplocalleader="+"
 
 set encoding=utf-9
 set fileencoding=utf-8
-set modelines=0               " Disable for security
-set autowrite                 " Save on file switch
-set autoread                  " Reload on external change
+set modelines=0                 " Disable for security
+set autowrite                   " Enable save on file switch
+set autoread                    " Enable reload on external change
 set conceallevel=0
+set linespace=2                 " Increase line-height
+set nowrap                      " No line break
+set relativenumber              " Enable relative line numbers
+set ruler                       " Enable line and row of the cursor
+set number                      " Enable Line numbers
+set ch=1                        " Height of command line
+set noerrorbells                "
+set visualbell                  " Disable beeping
+set backspace=indent,eol,start
+set hidden                      " Enable hidden buffers
+set title                       "
+set ttyfast                     " Enable Fast terminal connection
+set laststatus=2                " Enable status line
+set shortmess=ao0tI             " Welcome screen (e.g. no welcome message)
+set t_Co=256                    " 256 Colours
+set lazyredraw                  " Disable refresh while executing a macro
+set showcmd                     " Show partially completed commands
+set showmode                    " Show mode
+set mousehide                   " Hide mouse while typing
+set mouse=a ttymouse=xterm2     " Enable mouse in terminal mode
+set synmaxcol=800               " Disable syntax highlighting 800 chars.
+set timeoutlen=500              " Timeout for <leader>
 
 " Session Management
 let g:session_directory = "~/.vim/sessions"
@@ -80,6 +102,7 @@ nnoremap <leader>so :OpenSession
 nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sx :CloseSession<CR>
+" sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,resize,slash,tabpages,unix,winpos,winsize
 
 " Backup Management
 set undodir=$HOME/.vim/tmp/undo//
@@ -90,42 +113,36 @@ set backup
 set writebackup
 set noswapfile
 
-set linespace=2
+" Persistent (G)undo files between sessions
+set undofile
+set history=1000
+set undolevels=100
 
-" TABS & SPACES
+set updatetime=1000             " 1 second
+
+" Tabs and indent
 set tabstop=2             " Number of visual spaces per TAB
 set shiftwidth=2
 set softtabstop=2         " Number of spaces in tab when editing
 set expandtab             " tabs are spaces
 set autoindent            " always set indenting on
 set copyindent            " copy the previous indentation on autoindenting
+set shiftround
+set smartindent cinwords=if,elif,else,for,while,def,class
+set smarttab
 
-" UI CONFIG
-set number					      " Show line numbers
-set cursorline					  " Highlight current line
-
-filetype indent on				" Load filetype indent files
-
-set lazyredraw					  " Redraw only when we need to
-set showmatch					    " Highlight matching [{()}]
-
-" SEARCHING
+" Search
+set ignorecase
+set smartcase
 set incsearch					    " Search as characters are entered
 set hlsearch					    " Highlight matches
+set wrapscan              " Wrap search at end/beggining of file
 
 " FOLDING
 set foldenable					  " Enable folding
 set foldmethod =indent		" Fold based on indent level
 
 nnoremap <space> za				" Space Open/Closes folds
-
-" MISC
-set noerrorbells
-set novisualbell
-set spell
-
-setlocal spell spelllang=en_gb
-
 
 "" Plugins
 
@@ -142,9 +159,4 @@ let g:NERDTreeMinimalUI         = 1
 let g:NERDTreeWinSize           = 20
 let g:NERDTreeShowGitStatus     = 1
 " let g:NERDTreeShowHidden        = 1
-
-:set wildignore+=**/vendor/**
-
-set encoding=utf-8
-
 
