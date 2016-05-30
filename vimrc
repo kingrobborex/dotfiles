@@ -138,9 +138,11 @@ set incsearch					    " Search as characters are entered
 set hlsearch					    " Highlight matches
 set wrapscan              " Wrap search at end/beggining of file
 
-" FOLDING
+" Folding
 set foldenable					  " Enable folding
-set foldmethod =indent		" Fold based on indent level
+set foldcolumn=0          " Disable foldcolum
+set foldmethod =marker		" Fold based on marker
+set foldlevelstart=20
 
 nnoremap <space> za				" Space Open/Closes folds
 
