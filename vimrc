@@ -11,6 +11,18 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
+if empty(glob('~/.vim/undo/'))
+  silent !mkdir ~/.vim/undo
+endif
+
+if empty(glob('~/.vim/backup/'))
+  silent !mkdir ~/.vim/backup
+endif
+
+if empty(glob('~/.vim/swap'))
+  silent !mkdir ~/.vim/swap
+endif
+
 call plug#begin('~/.vim/plugged')
 " Colors
   Plug  'flazz/vim-colorschemes'
@@ -19,6 +31,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'ap/vim-css-color'
 
   " System
+  Plug  'ain/vim-capistrano'
   Plug  'editorconfig/editorconfig-vim'
   Plug  'KabbAmine/gulp-vim',               { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
   Plug  'mattn/webapi-vim' | Plug  'mattn/gist-vim',                   { 'on': 'Gist'}
@@ -32,7 +45,11 @@ call plug#begin('~/.vim/plugged')
   " UI
   Plug  'ervandew/supertab'
   Plug  'scrooloose/nerdtree',              { 'on': 'NERDTreeToggle' }
+  Plug  'vim-airline/vim-airline'
+  Plug  'vim-airline/vim-airline-themes'
   Plug  'Xuyuanp/nerdtree-git-plugin'
+
+  Plug  'fatih/vim-go',                     { 'for': 'go' }
 
   " HTML
   Plug  'mattn/emmet-vim',                  { 'for': ['html', 'erb'] }
@@ -41,13 +58,62 @@ call plug#begin('~/.vim/plugged')
   Plug  'skalnik/vim-vroom'
   Plug  'sunaku/vim-ruby-minitest',         { 'for': ['ruby'] }
   Plug  'tpope/vim-bundler'
-  Plug  'tpope/vim-rails',                  { 'for': ['ruby'] }, { 'on': ['Rails'] }
+  Plug  'tpope/vim-rails'
   Plug  'tpope/vim-rbenv'
   Plug  'vim-ruby/vim-ruby',                { 'for': ['ruby'] }
 
 call plug#end()
 
 filetype plugin indent on
+
+set conceallevel=0
+set linespace=2                 " Increase line-height
+set nowrap                      " No line break
+set relativenumber              " Enable relative line numbers
+set ruler                       " Enable line and row of the cursor
+set number                      " Enable Line numbers
+set ch=1                        " Height of command line
+set noerrorbells                "
+set visualbell                  " Disable beeping
+set backspace=indent,eol,start
+set hidden                      " Enable hidden buffers
+set title                       "
+set ttyfast                     " Enable Fast terminal connection
+set laststatus=2                " Enable status line
+set shortmess=I                 " Welcome screen (e.g. no welcome message)
+set t_Co=256                    " 256 Colours
+set lazyredraw                  " Disable refresh while executing a macro
+set showcmd                     " Show partially completed commands
+set showmode                    " Show mode
+set mousehide                   " Hide mouse while typing
+set mouse=a ttymouse=xterm2     " Enable mouse in terminal mode
+set synmaxcol=800               " Disable syntax highlighting 800 chars.
+set timeoutlen=500              " Timeout for <leader
+set scrolloff=3                 " Keep 3 lines of context
+set virtualedit=all             " Enable positioning of cursor where no character is
+set key=                        " Remove fixed key
+set cryptmethod=blowfish        " Set encryption type
+set textwidth=0                 " Disable line breaks
+set showfulltag                 " Show full tag when autocompleting
+set fillchars=diff:⣿,vert:│     " Statusline charactors
+set diffopt+=iwhite             " Ignore whitespace in DIFFs
+set list                        " Show invisibles (tabs, line endings etc.)
+set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:.,extends:❯,precedes:❮ " Choose symbols to show invisibles
+set showbreak=+                 " Show line breaks
+set splitbelow                  " Split below the current window
+set splitright                  " Split right of the current window
+
+" Spell check
+set spelllang=en_gb
+set dictionary+=~/.vim/dictionary/en_user.txt
+set dictionary+=~/.vim/dictionary/en_neu.txt
+set dictionary+=~/.vim/dictionary/en_gb.txt
+set thesaurus+=~/.vim/thesaurus/en_user.txt
+set thesaurus+=~/.vim/thesaurus/en_openthesaurus.txt
+set complete+=kspell
+
+set wildmenu                    " Enable better commandline completion
+set wildmode=list:longest,list:full   " Complete files like shell
 
 syntax on                 " Syntax Highlighting
 
@@ -85,10 +151,9 @@ set hidden                      " Enable hidden buffers
 set title                       "
 set ttyfast                     " Enable Fast terminal connection
 set laststatus=2                " Enable status line
-set shortmess=ao0tI             " Welcome screen (e.g. no welcome message)
+set shortmess=I                 " Welcome screen (e.g. no welcome message)
 set t_Co=256                    " 256 Colours
-set lazyredraw                  " Disable
-let g:javascript_conceal_super          = "Ω"refresh while executing a macro
+set lazyredraw                  " Disable refresh while executing a macro
 set showcmd                     " Show partially completed commands
 set showmode                    " Show mode
 set mousehide                   " Hide mouse while typing
@@ -108,18 +173,6 @@ set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:.,extends:❯,precedes:❮ " Choose
 set showbreak=+                 " Show line breaks
 set splitbelow                  " Split below the current window
 set splitright                  " Split right of the current window
-
-" Spell check
-set spelllang=en_gb
-set dictionary+=~/.vim/dictionary/en_user.txt
-set dictionary+=~/.vim/dictionary/en_neu.txt
-set dictionary+=~/.vim/dictionary/en_gb.txt
-set thesaurus+=~/.vim/thesaurus/en_user.txt
-set thesaurus+=~/.vim/thesaurus/en_openthesaurus.txt
-set complete+=kspell
-
-set wildmenu                    " Enable better commandline completion
-set wildmode=list:longest,list:full   " Complete files like shell
 
 " Ignore stuff
 set wildignore+=*.gem,gems/**
@@ -333,6 +386,22 @@ nnoremap <leader>f gg=G
 
 "" Plugins
 
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_theme = 'tomorrow'
+let g:airline#extensions#tabline#enabled = 0
+
+let g:airline#extensions#branch#empty_message = "No SCM"
+let g:airline#extensions#whitespace#enabled   = 1
+let g:airline#extensions#whitespace#symbol    = '!'
+let g:airline#extensions#whitespace#checks    = [ 'indent', 'trailing' ]
+let g:airline#extensions#whitespace#max_lines = 20000
+let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
+let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
+
 " Emmet
 autocmd FileType html imap <tab> <plug>(emmet-expand-abbr)
 autocmd FileType eruby imap <tab> <plug>(emmet-expand-abbr)
@@ -346,6 +415,8 @@ let g:gist_post_private              = 1
 let g:gist_open_browser_after_post   = 1
 let g:gist_use_password_in_gitconfig = 0
 
+" GoLang
+let $GOPATH = "/usr/bin/go"
 " Nerdtree
 let g:NERDTreeAutoDeleteBuffer  = 0
 let g:NERDTreeMinimalUI         = 1
