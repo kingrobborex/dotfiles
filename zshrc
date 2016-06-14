@@ -1,26 +1,43 @@
-export NVM_DIR="/home/robert/.nvm"
+# Load custom executable functions
+for function in ~/.zsh/functions/*; do
+  source $function
+done
 
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# extra files in ~/.zsh/configs/pre, ~/.zsh/configs, and ~/.zsh/configs/post
+# these are loaded first, second, and third, respectivly
+_load_settings() {
+  _dir="$1"
+  if [ -d "$_dir" ]; then
+    if [ -d "$_dir/pre" ]; then
+      for config in "$_dir"/pre/**/*(N-.); do
+        . $config
+      done
+    fi
+    for config in "$_dir"/**/*(N-.); do
+      case "$config" in
+        "$_dir"/pre/*)
+          :
+          ;;
+        "$_dir"/post/*)
+          :
+          ;;
+        *)
+          if p -f $config ]; then
+            . $config
+          fi
+          ;;
+      esac
+    done
 
-autoload -U add-zsh-hook
-
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-  	  nvm use
+    if [ -d "$_dir/post" ]; then
+      for config in "$_dir"/post/**/*(N-.); do
+        . $config
+      done
+    fi
   fi
 }
-add-zsh-hook chpwd load-nvmrc
 
-# SSH-Agent
-if ! pgrep -u $USER ssh-agent > /dev/null; then
-  ssh-agent > ~/.ssh-agent-thing
-fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-  eval $(<~/.ssh-agent-thing)
-fi
-
-ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
-
+_load_settings "$HOME/.zsh/configs"
 
 
 # aliases
