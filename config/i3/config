@@ -38,25 +38,25 @@ exec nm-applet
 # AUTOSTART #
 #############
 
-exec --no-startup-id firefox
-exec --no-startup-id thunderbird
-exec --no-startup-id skype
-exec --no-startup-id xterm -name irssi irssi
-exec --no-startup-id vlc
-exec --no-startup-id xflux -l 0.2 -g 51.1
+# exec --no-startup-id firefox
+# exec --no-startup-id thunderbird
+# exec --no-startup-id skype
+# exec --no-startup-id xterm -name irssi irssi
+# exec --no-startup-id vlc
+# exec --no-startup-id xflux -l 0.2 -g 51.1
 
-assign [class="^VLC$"]         $ws1
-assign [class="^Firefox$"]     $ws2
-assign [class="^irssi$"]       $ws3
-assign [class="^Thunderbird$"] $ws3
-assign [class="^Skype$"]       $ws3
-assign [class="^Stremio$"]     $ws1
-assign [class="^Popcorn$"]     $ws1
-assign [class="^irssi$"]       $ws3
-assign [class="Tor"]           $ws7
-assign [class="VirtualBox"]    $ws4
-assign [class="^Steam$"]       $ws5
-assign [class="^Sopcast$"]     $ws1
+# assign [class="^VLC$"]         $ws1
+# assign [class="^Firefox$"]     $ws2
+# assign [class="^irssi$"]       $ws3
+# assign [class="^Thunderbird$"] $ws3
+# assign [class="^Skype$"]       $ws3
+# assign [class="^Stremio$"]     $ws1
+# assign [class="^Popcorn$"]     $ws1
+# assign [class="^irssi$"]       $ws3
+# assign [class="Tor"]           $ws7
+# assign [class="VirtualBox"]    $ws4
+# assign [class="^Steam$"]       $ws5
+# assign [class="^Sopcast$"]     $ws1
 
 ####################
 # Specific styling #
