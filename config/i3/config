@@ -48,7 +48,7 @@ exec nm-applet
 #############
 # SHORTCUTS #
 #############
-bindsym $mod+alt exec firefox
+bindsym $mod+ctl+f exec firefox
 
 #############
 # ASSIGN    #
