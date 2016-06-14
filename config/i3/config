@@ -7,13 +7,13 @@ set $mod Mod4
 ##############
 # Workspaces #
 ##############
-set $ws1 1: media
-set $ws2 2: main
-set $ws3 3: chat
-set $ws4 4: virt
-set $ws5 5: game
-set $ws6 6: phot
-set $ws7 7: tor
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+set $ws5 5:
+set $ws6 6:
+set $ws7 7:
 
 
 #############
@@ -44,6 +44,15 @@ exec nm-applet
 # exec --no-startup-id xterm -name irssi irssi
 # exec --no-startup-id vlc
 # exec --no-startup-id xflux -l 0.2 -g 51.1
+
+#############
+# SHORTCUTS #
+#############
+bindsym $mod+alt exec firefox
+
+#############
+# ASSIGN    #
+# ###########
 
 # assign [class="^VLC$"]         $ws1
 # assign [class="^Firefox$"]     $ws2
