@@ -1,7 +1,3 @@
-# Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
-
 export NVM_DIR="/home/robert/.nvm"
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -24,3 +20,11 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 fi
 
 ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
+
+
+
+# aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
+
+# local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
