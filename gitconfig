@@ -1,0 +1,6 @@
+[init]
+  templatedir = ~/.git_template
+[push]
+  default = current
+[include]
+  path = ~/.gitconfig.local
