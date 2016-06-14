@@ -325,7 +325,7 @@ noremap <leader>he :call HtmlEscape()<CR>
 noremap <leader>hue :call HtmlEscape()<CR>
 
 " Open the current file with Firefox, Chrome or Safari
-noremap <silent> <leader>ff :! open -a firefox %:p<CR>
+noremap <silent> <leader>ff :! firefox %:p<CR>
 noremap <silent> <leader>gc :! open -a google\ chrome %:p<CR>
 " noremap <silent> <leader>sf :! open -a safari.app %:p<CR>
 
