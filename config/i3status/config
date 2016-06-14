@@ -20,7 +20,7 @@ order += "ethernet _first_"
 order += "load"
 order += "tztime local"
 
-wireless _first_ {
+wireless wlan0 {
     format_up = "W: (%quality at %essid) %ip"
     format_down = "W: down"
 }
@@ -39,10 +39,6 @@ run_watch DHCP {
     pidfile = "/var/run/dhclient*.pid"
 }
 
-run_watch VPN {
-    pidfile = "/var/run/vpnc/pid"
-}
-
 tztime local {
     format = "%A %B %e %R"
 }
@@ -52,10 +48,6 @@ load {
 }
 
 disk "/home/robert" {
-    format = "Home: %avail"
+    format = "Home: %free"
 }
-
-disk "/media/storage" {
-    format = "Storage: %avail"
-    }
 
