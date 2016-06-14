@@ -22,7 +22,7 @@ _load_settings() {
           :
           ;;
         *)
-          if p -f $config ]; then
+          if [ -f $config ]; then
             . $config
           fi
           ;;
