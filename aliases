@@ -1,4 +1,5 @@
 # Unix
+alias ls='ls --color'
 alias mkdir="mkdir -p"
 
 # Rails
