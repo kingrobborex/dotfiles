@@ -14,4 +14,4 @@ git_init () {
   && git gc
 }
 
-alias = gin=git_init
+alias gin=git_init
