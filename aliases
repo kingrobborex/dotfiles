@@ -1,3 +1,14 @@
+# arch linux with systemd aliases
+if [[ "$LSB_DISTRIBUTOR" == "archlinux" ]]; then
+  # statements
+  alias ctl='sudo systemctl '
+  alias start=" sudo systemctl start"
+  alias stop=" sudo systemctl stop"
+  alias status=" sudo systemctl status"
+  alias restart=" sudo systemctl restart"
+  alias reboot="sudo systemctl start reboot.target"
+fi
+
 # Unix
 alias ls='ls --color'
 alias mkdir="mkdir -p"
