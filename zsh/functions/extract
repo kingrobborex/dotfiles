@@ -18,10 +18,15 @@ extract_archive () {
         tar xfv $1
     elif [[ $lower == *.lha ]]; then
         lha e $1
+    elif [[ $lower == *.xz ]]; then
+      xz -d $1
+    elif [[ $lower == *.z || $lower = *.7z ]]; then
+      7z x $1
     else
         print "Unknown archive type: $1"
         return 1
     fi
+
     # Change in to the newly created directory, and
     # list the directory contents, if there is one.
     current_dirs=( *(N/) )
@@ -35,4 +40,4 @@ extract_archive () {
 }
 
 alias ex=extract_archive
-compdef '_files -g "*.gz *.tgz *.bz2 *.tbz *.zip *.rar *.tar *.lha"' extract_archive
+compdef '_files -g "*.gz *.tgz *.bz2 *.tbz *.zip *.rar *.tar *.lha *.xz *.7z *.z"' extract_archive
