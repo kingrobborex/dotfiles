@@ -10,8 +10,11 @@ if [[ "$LSB_DISTRIBUTOR" == "archlinux" ]]; then
 fi
 
 # Unix
+alias cp='cp -pi'
+alias grip='grep --color=auto'
 alias ls='ls --color'
 alias mkdir="mkdir -p"
+alias mv='mv -i'
 
 # Rails
 alias migrate="bundle exec rake db:migrate db:rollback && bundle exec rake db:migrate"
