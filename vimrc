@@ -33,9 +33,9 @@ call plug#begin('~/.vim/plugged')
   " System
   Plug  'ain/vim-capistrano'
   Plug  'editorconfig/editorconfig-vim'
-  Plug  'KabbAmine/gulp-vim',               { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
-  Plug  'mattn/webapi-vim' | Plug  'mattn/gist-vim',                   { 'on': 'Gist'}
-  Plug  'patrickkettner/bower.vim',         { 'on': 'Bower' }
+  Plug  'KabbAmine/gulp-vim',                        { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
+  Plug  'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
+  Plug  'patrickkettner/bower.vim',                  { 'on': 'Bower' }
   Plug  'tpope/vim-dispatch'
   Plug  'tpope/vim-endwise'
   Plug  'tpope/vim-fugitive'
