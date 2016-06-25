@@ -1,4 +1,14 @@
-gem: --no-document
+---
+  gem: --no-document
+  benchmark: false
+  verbose: true
+  update_sources: true
+  sources:
+  - http://gems.rubyforge.org/
+  - http://rubygems.org/
+  backtrace: true
+  bulk_threshold: 1000
 
-install: --no-rdoc --no-ri
-update: --no-rdoc --no-ri
+# HTTP Proxy options
+# http-proxy: http://example.com:90
+
