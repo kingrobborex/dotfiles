@@ -26,5 +26,5 @@ fi
 
 unset _old_path
 
- export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
 eval "$(rbenv init -)"
