@@ -1,3 +1,7 @@
+[alias]
+  co = checkout
+[core]
+
 [init]
   templatedir = ~/.git_template
 [push]
