@@ -1,0 +1,5 @@
+# ~/.ssh/config
+
+Host endor
+  HostName endor.roboticdinosaur.co.uk
+  ForwardX11 yes
