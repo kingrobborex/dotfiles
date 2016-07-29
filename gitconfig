@@ -8,3 +8,6 @@
   default = current
 [include]
   path = ~/.gitconfig.local
+[user]
+	email = robert@roboticdinosaur.co.uk
+	name = Robert Forbes
