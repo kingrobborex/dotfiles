@@ -34,6 +34,7 @@ exec --no-startup-id hsetroot -tile ~/Pictures/background.png
 exec --no-startup-id compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -1 0 -r 3 -D2 -m 0.88
 exec kdeconnect-cli --refresh
 exec nm-applet
+exec owncloud
 
 #############
 # AUTOSTART #
