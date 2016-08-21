@@ -197,9 +197,9 @@ set wildignore+=*/node_modules/**
 set wildignore+=*/bower_components/**,*/_bower_components/**
 
 " Backup Management
-set undodir=$HOME/.vim/tmp/undo//
-set backupdir=$HOME/.vim/tmp/backup//
-set directory=$HOME/.vim/tmp/swap//
+set undodir=$HOME/.vim/undo//
+set backupdir=$HOME/.vim/backup//
+set directory=$HOME/.vim/swap//
 set backupskip=/tmp/*,/private/tmp/*
 set backup
 set writebackup

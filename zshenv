@@ -28,3 +28,5 @@ unset _old_path
 
 export PATH="$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
 eval "$(rbenv init -)"
+
+export PATH="$HOME/.npm-packages/bin:$PATH"
