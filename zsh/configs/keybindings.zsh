@@ -14,19 +14,19 @@ key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
 for k in ${(k)key} ; do
-    # $terminfo[] entries are weird in ncurses application mode...
-    [[ ${key[$k]} == $'\eO'* ]] && key[$k]=${key[$k]/O/[}
+  # $terminfo[] entries are weird in ncurses application mode...
+  [[ ${key[$k]} == $'\eO'* ]] && key[$k]=${key[$k]/O/[}
 done
 unset k
 
 # setup keys now :-)
-[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    vi-beginning-of-line
-[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     vi-end-of-line
-[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
-[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
-[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      up-line-or-history
-[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    down-line-or-history
-[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
-[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
-[[ -n "${key[PageDown]}"    ]]  && bindkey  "${key[PageDown]}" vi-forward-blank-word
-[[ -n "${key[PageUp]}" ]] && bindkey "${key[PageUp]}" vi-backward-blank-word
+[[ -n "${key[Home]}"     ]] && bindkey "${key[Home]}"     beginning-of-line
+[[ -n "${key[End]}"      ]] && bindkey "${key[End]}"      end-of-line
+[[ -n "${key[Insert]}"   ]] && bindkey "${key[Insert]}"   overwrite-mode
+[[ -n "${key[Delete]}"   ]] && bindkey "${key[Delete]}"   delete-char
+[[ -n "${key[Up]}"       ]] && bindkey "${key[Up]}"       up-line-or-history
+[[ -n "${key[Down]}"     ]] && bindkey "${key[Down]}"     down-line-or-history
+[[ -n "${key[Left]}"     ]] && bindkey "${key[Left]}"     backward-char
+[[ -n "${key[Right]}"    ]] && bindkey "${key[Right]}"    forward-char
+[[ -n "${key[PageDown]}" ]] && bindkey "${key[PageDown]}" forward-blank-word
+[[ -n "${key[PageUp]}"   ]] && bindkey "${key[PageUp]}"   backward-blank-word
