@@ -1,6 +1,3 @@
-
-prefix = ~/.npm-packages
-
 ; All options with defaults
 ; always-auth = false
 ; bin-links = true
