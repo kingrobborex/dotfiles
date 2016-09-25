@@ -256,20 +256,6 @@ nnoremap <leader>sx :CloseSession<CR>
 
 "" Mapping
 
-" Unmap arrow keys
-noremap <down> <Nop>
-noremap <left> <Nop>
-noremap <right> <Nop>
-noremap <up> <Nop>
-inoremap <down> <Nop>
-inoremap <left> <Nop>
-inoremap <right> <Nop>
-inoremap <up> <Nop>
-vnoremap <down> <Nop>
-vnoremap <left> <Nop>
-vnoremap <right> <Nop>
-vnoremap <up> <Nop>
-
 " Keep the window centered
 noremap G Gzzzv
 noremap n nzzzv
