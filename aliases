@@ -12,7 +12,6 @@ fi
 # Unix
 alias cp='cp -pi'
 alias grip='grep --color=auto'
-alias ls='ls --color'
 alias mkdir="mkdir -p"
 alias mv='mv -i'
 
