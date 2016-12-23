@@ -8,7 +8,7 @@ set $pictures ~/Pictures
 ##############
 # Workspaces #
 ##############
-set $ws1 1: WWW
+set $ws1 1: Media
 set $ws2 2: Terminal
 set $ws3 3: Chat
 set $ws4 4:
@@ -148,28 +148,28 @@ bindsym $mod+c focus child
 # bindsym $mod+semicolon move workspace to output right
 
 # switch to workspace
-bindsym $mod+F1 workspace $ws1
-bindsym $mod+F2 workspace $ws2
-bindsym $mod+F3 workspace $ws3
-bindsym $mod+F4 workspace $ws4
-bindsym $mod+F5 workspace $ws5
-bindsym $mod+F6 workspace $ws6
-bindsym $mod+F7 workspace $ws7
-bindsym $mod+F8 workspace $ws8
-bindsym $mod+F9 workspace $ws9
-bindsym $mod+F10 workspace $ws10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+10 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+shift+F1 move container to workspace $ws1
-bindsym $mod+shift+F2 move container to workspace $ws2
-bindsym $mod+shift+F3 move container to workspace $ws3
-bindsym $mod+shift+F4 move container to workspace $ws4
-bindsym $mod+shift+F5 move container to workspace $ws5
-bindsym $mod+shift+F6 move container to workspace $ws6
-bindsym $mod+shift+F7 move container to workspace $ws7
-bindsym $mod+shift+F8 move container to workspace $ws8
-bindsym $mod+shift+F9 move container to workspace $ws9
-bindsym $mod+shift+F10 move container to workspace $ws10
+bindsym $mod+shift+1 move container to workspace $ws1
+bindsym $mod+shift+2 move container to workspace $ws2
+bindsym $mod+shift+3 move container to workspace $ws3
+bindsym $mod+shift+4 move container to workspace $ws4
+bindsym $mod+shift+5 move container to workspace $ws5
+bindsym $mod+shift+6 move container to workspace $ws6
+bindsym $mod+shift+7 move container to workspace $ws7
+bindsym $mod+shift+8 move container to workspace $ws8
+bindsym $mod+shift+9 move container to workspace $ws9
+bindsym $mod+shift+10 move container to workspace $ws10
 
 # next/previous workspace
 bindsym Mod1+Tab focus right
