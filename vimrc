@@ -32,6 +32,7 @@ call plug#begin('~/.vim/plugged')
 
   " System
   Plug  'ain/vim-capistrano'
+  Plug  'christoomey/vim-tmux-navigator'
   Plug  'editorconfig/editorconfig-vim'
   Plug  'KabbAmine/gulp-vim',                        { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
   Plug  'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
@@ -52,7 +53,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'fatih/vim-go',                     { 'for': 'go' }
 
   " HTML
-  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'erb'] }
+  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'erb', 'css'] }
 
   " Ruby / Rails
   Plug  'skalnik/vim-vroom'
@@ -69,9 +70,10 @@ filetype plugin indent on
 set conceallevel=0
 set linespace=2                 " Increase line-height
 set nowrap                      " No line break
-set relativenumber              " Enable relative line numbers
+" set relativenumber              " Enable relative line numbers
 set ruler                       " Enable line and row of the cursor
 set number                      " Enable Line numbers
+set numberwidth=5
 set ch=1                        " Height of command line
 set noerrorbells                "
 set visualbell                  " Disable beeping
@@ -137,42 +139,6 @@ set fileencoding=utf-8
 set modelines=0                 " Disable for security
 set autowrite                   " Enable save on file switch
 set autoread                    " Enable reload on external change
-set conceallevel=0
-set linespace=2                 " Increase line-height
-set nowrap                      " No line break
-set relativenumber              " Enable relative line numbers
-set ruler                       " Enable line and row of the cursor
-set number                      " Enable Line numbers
-set ch=1                        " Height of command line
-set noerrorbells                "
-set visualbell                  " Disable beeping
-set backspace=indent,eol,start
-set hidden                      " Enable hidden buffers
-set title                       "
-set ttyfast                     " Enable Fast terminal connection
-set laststatus=2                " Enable status line
-set shortmess=I                 " Welcome screen (e.g. no welcome message)
-set t_Co=256                    " 256 Colours
-set lazyredraw                  " Disable refresh while executing a macro
-set showcmd                     " Show partially completed commands
-set showmode                    " Show mode
-set mousehide                   " Hide mouse while typing
-set mouse=a ttymouse=xterm2     " Enable mouse in terminal mode
-set synmaxcol=800               " Disable syntax highlighting 800 chars.
-set timeoutlen=500              " Timeout for <leader
-set scrolloff=3                 " Keep 3 lines of context
-set virtualedit=all             " Enable positioning of cursor where no character is
-set key=                        " Remove fixed key
-set cryptmethod=blowfish        " Set encryption type
-set textwidth=0                 " Disable line breaks
-set showfulltag                 " Show full tag when autocompleting
-set fillchars=diff:⣿,vert:│     " Statusline charactors
-set diffopt+=iwhite             " Ignore whitespace in DIFFs
-set list                        " Show invisibles (tabs, line endings etc.)
-set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:.,extends:❯,precedes:❮ " Choose symbols to show invisibles
-set showbreak=+                 " Show line breaks
-set splitbelow                  " Split below the current window
-set splitright                  " Split right of the current window
 
 " Ignore stuff
 set wildignore+=*.gem,gems/**
@@ -256,6 +222,12 @@ nnoremap <leader>sx :CloseSession<CR>
 
 "" Mapping
 
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
 " Keep the window centered
 noremap G Gzzzv
 noremap n nzzzv
@@ -310,6 +282,9 @@ noremap <C-y> 3<C-y>
 noremap <leader>he :call HtmlEscape()<CR>
 noremap <leader>hue :call HtmlEscape()<CR>
 
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
+
 " Open the current file with Firefox, Chrome or Safari
 noremap <silent> <leader>ff :! firefox %:p<CR>
 noremap <silent> <leader>gc :! open -a google\ chrome %:p<CR>
@@ -358,6 +333,12 @@ nnoremap <silent> <leader>da :exec "1," . bufnr('$') . "bd"<CR>
 
 " Toggle set list
 nnoremap <leader>1 :set list!<CR>
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " Mapping for easier OmniCompletion
 inoremap <C-]> <C-X><C-]>
@@ -423,3 +404,8 @@ function! HtmlUnEscape()
   silent s/&gt;/>/eg
   silent s/&amp;/\&/eg
 endfunction
+
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
