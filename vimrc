@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'ain/vim-capistrano'
   Plug  'christoomey/vim-tmux-navigator'
   Plug  'editorconfig/editorconfig-vim'
+  Plug  'jgdavey/tslime.vim'
   Plug  'KabbAmine/gulp-vim',                        { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
   Plug  'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
   Plug  'patrickkettner/bower.vim',                  { 'on': 'Bower' }
