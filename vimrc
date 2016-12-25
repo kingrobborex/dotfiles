@@ -59,6 +59,7 @@ call plug#begin('~/.vim/plugged')
   " Ruby / Rails
   Plug  'skalnik/vim-vroom'
   Plug  'sunaku/vim-ruby-minitest',         { 'for': ['ruby'] }
+  Plug  'thoughtbot/vim-rspec',             { 'for': ['ruby'] }
   Plug  'tpope/vim-bundler'
   Plug  'tpope/vim-rails'
   Plug  'tpope/vim-rbenv'
