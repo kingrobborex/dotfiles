@@ -10,8 +10,8 @@ set $pictures ~/Pictures
 ##############
 set $ws1 1: Media
 set $ws2 2: Terminal
-set $ws3 3: Chat
-set $ws4 4:
+set $ws3 3: WWW
+set $ws4 4: Chat
 set $ws5 5:
 set $ws6 6:
 set $ws7 7:
@@ -53,9 +53,9 @@ bindsym $mod+ctl+f exec firefox
 # ASSIGN    #
 # ###########
 
-assign [class="^Firefox$"]     $ws2
-assign [class="^Thunderbird$"] $ws3
-assign [class="^Skype$"]       $ws3
+assign [class="^Firefox$"]     $ws3
+assign [class="^Thunderbird$"] $ws4
+assign [class="^Skype$"]       $ws4
 
 ####################
 # Specific styling #
