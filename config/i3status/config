@@ -41,7 +41,7 @@ run_watch DHCP {
 }
 
 time {
-    format = "%d.%m.$Y %H:%M"
+    format = "%d.%m.%Y %H:%M"
 }
 
 load {
