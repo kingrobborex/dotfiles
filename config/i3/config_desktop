@@ -12,7 +12,7 @@ set $ws1 1: Media
 set $ws2 2: Terminal
 set $ws3 3: WWW
 set $ws4 4: Chat
-set $ws5 5:
+set $ws5 5: Virtual
 set $ws6 6:
 set $ws7 7:
 set $ws8 8:
@@ -56,6 +56,8 @@ bindsym $mod+ctl+f exec firefox
 assign [class="^Firefox$"]     $ws3
 assign [class="^Thunderbird$"] $ws4
 assign [class="^Skype$"]       $ws4
+assign [class="^VirtualBox$"]  $ws5
+assign [class="^PlayOnLinux$"] $ws5
 
 ####################
 # Specific styling #
