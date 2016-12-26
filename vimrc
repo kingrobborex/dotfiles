@@ -225,10 +225,10 @@ nnoremap <leader>sx :CloseSession<CR>
 "" Mapping
 
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+nnoremap <Up>    :echoe "Use k"<CR>
+nnoremap <Down>  :echoe "Use j"<CR>
 
 " Keep the window centered
 noremap G Gzzzv
@@ -406,6 +406,14 @@ function! HtmlUnEscape()
   silent s/&gt;/>/eg
   silent s/&amp;/\&/eg
 endfunction
+
+" RSpec.vim mappings
+
+let g:rspec_connand = 'call Send_to_Tmux("rspec {spec}\n")'
+map <leader>t :call RunCurrentSpecFile()<CR>
+map <leader>s :call RunNearestSpec()<CR>
+map <leader>l :call RunLastSpec()<CR>
+map <leader>a :call RunAllSpecs()<CR>
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
