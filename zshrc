@@ -65,3 +65,12 @@ load-nvmrc() {
 
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+###-tns-completion-start-###
+if [ -f /home/robert/.tnsrc ]; then 
+    source /home/robert/.tnsrc 
+fi
+###-tns-completion-end-###
+
+# added by travis gem
+[ -f /home/robert/.travis/travis.sh ] && source /home/robert/.travis/travis.sh
