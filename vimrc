@@ -30,6 +30,8 @@ call plug#begin('~/.vim/plugged')
   Plug  'AlessandroYorba/Alduin'
   Plug  'ap/vim-css-color'
 
+  Plug  'hhsnopek/vim-sugarss'
+
   " System
   Plug  'ain/vim-capistrano'
   Plug  'christoomey/vim-tmux-navigator'
@@ -43,6 +45,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'tpope/vim-fugitive'
   Plug  'tpope/vim-surround'
   Plug  'vim-scripts/npm.vim'
+  Plug  'trkw/yarn.vim'
 
   " UI
   Plug  'ervandew/supertab'
@@ -64,6 +67,8 @@ call plug#begin('~/.vim/plugged')
   Plug  'tpope/vim-rails'
   Plug  'tpope/vim-rbenv'
   Plug  'vim-ruby/vim-ruby',                { 'for': ['ruby'] }
+
+  " Syntax
 
 call plug#end()
 
@@ -121,6 +126,7 @@ set wildmode=list:longest,list:full   " Complete files like shell
 
 syntax on                 " Syntax Highlighting
 
+
 set background=dark       " Colorscheme
 colorscheme Tomorrow-Night
 
@@ -167,6 +173,7 @@ set wildignore+=*/bower_components/**,*/_bower_components/**
 " Backup Management
 set undodir=$HOME/.vim/undo//
 set backupdir=$HOME/.vim/backup//
+set backupcopy=yes
 set directory=$HOME/.vim/swap//
 set backupskip=/tmp/*,/private/tmp/*
 set backup
@@ -372,16 +379,18 @@ let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 
 " Emmet
-autocmd FileType html imap <tab> <plug>(emmet-expand-abbr)
-autocmd FileType eruby imap <tab> <plug>(emmet-expand-abbr)
-autocmd FileType css imap <tab> <plug>(emmet-expand-abbr)
-autocmd FileType scss imap <tab> <plug>(emmet-expand-abbr)
+"autocmd FileType html imap <tab> <plug>(emmet-expand-abbr)
+"autocmd FileType eruby imap <tab> <plug>(emmet-expand-abbr)
+"autocmd FileType css imap <tab> <plug>(emmet-expand-abbr)
+"autocmd FileType scss imap <tab> <plug>(emmet-expand-abbr)
 
 " Gist
-let g:gist_clip_command              = 'pbcopy'
+let g:gist_clip_command              = 'xclip -selection clipboard'
 let g:gist_detect_filetype           = 1
 let g:gist_post_private              = 1
-let g:gist_open_browser_after_post   = 1
+let g:gist_show_privates             = 1
+let g:gist_get_multiplefile          = 1
+let g:gist_open_browser_after_post   = 0
 let g:gist_use_password_in_gitconfig = 0
 
 " GoLang
@@ -414,6 +423,10 @@ map <leader>t :call RunCurrentSpecFile()<CR>
 map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>a :call RunAllSpecs()<CR>
+
+" Javscript / Syntastic
+" let g:syntastic_javascript_checkers = ['standard']
+" autocmd bufwritepost *.js silent !standard --fix %
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
