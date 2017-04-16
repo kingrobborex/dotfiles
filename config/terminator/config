@@ -11,4 +11,5 @@
 [plugins]
 [profiles]
   [[default]]
-    background_image = None
+    cursor_color = "#aaaaaa"
+    scrollback_lines = 10000
