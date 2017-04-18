@@ -30,8 +30,6 @@ call plug#begin('~/.vim/plugged')
   Plug  'AlessandroYorba/Alduin'
   Plug  'ap/vim-css-color'
 
-  Plug  'hhsnopek/vim-sugarss'
-
   " System
   Plug  'ain/vim-capistrano'
   Plug  'christoomey/vim-tmux-navigator'
@@ -57,18 +55,9 @@ call plug#begin('~/.vim/plugged')
   Plug  'fatih/vim-go',                     { 'for': 'go' }
 
   " HTML
-  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'erb', 'css'] }
-
-  " Ruby / Rails
-  Plug  'skalnik/vim-vroom'
-  Plug  'sunaku/vim-ruby-minitest',         { 'for': ['ruby'] }
-  Plug  'thoughtbot/vim-rspec',             { 'for': ['ruby'] }
-  Plug  'tpope/vim-bundler'
-  Plug  'tpope/vim-rails'
-  Plug  'tpope/vim-rbenv'
-  Plug  'vim-ruby/vim-ruby',                { 'for': ['ruby'] }
-
-  " Syntax
+  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'css'] }
+  Plug  'vim-scripts/html5.vim',            { 'for': ['html'] }
+  Plug  'Valloric/MatchTagAlways',          { 'for': ['html'] }
 
 call plug#end()
 
@@ -379,10 +368,7 @@ let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 
 " Emmet
-"autocmd FileType html imap <tab> <plug>(emmet-expand-abbr)
-"autocmd FileType eruby imap <tab> <plug>(emmet-expand-abbr)
-"autocmd FileType css imap <tab> <plug>(emmet-expand-abbr)
-"autocmd FileType scss imap <tab> <plug>(emmet-expand-abbr)
+let g:user_emmet_leader_key='<C-Z>'
 
 " Gist
 let g:gist_clip_command              = 'xclip -selection clipboard'
