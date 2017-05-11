@@ -56,8 +56,11 @@ call plug#begin('~/.vim/plugged')
 
   " HTML
   Plug  'mattn/emmet-vim',                  { 'for': ['html', 'css'] }
-  Plug  'vim-scripts/html5.vim',            { 'for': ['html'] }
-  Plug  'Valloric/MatchTagAlways',          { 'for': ['html'] }
+  Plug  'othree/html5.vim',                 { 'for': 'html' }
+  Plug  'Valloric/MatchTagAlways',          { 'for': ['html', 'css'] }
+
+  " Javascript
+  Plug  'posva/vim-vue',                    { 'for': 'html' }
 
 call plug#end()
 
@@ -410,9 +413,10 @@ map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>a :call RunAllSpecs()<CR>
 
-" Javscript / Syntastic
+" Javascript / Syntastic
 " let g:syntastic_javascript_checkers = ['standard']
 " autocmd bufwritepost *.js silent !standard --fix %
+autocmd BufRead,BufNewFile *.vue setlocal filetype=html
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
