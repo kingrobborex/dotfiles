@@ -44,6 +44,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'tpope/vim-surround'
   Plug  'vim-scripts/npm.vim'
   Plug  'trkw/yarn.vim'
+  Plug  'w0rp/ale'
 
   " UI
   Plug  'ervandew/supertab'
@@ -55,7 +56,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'fatih/vim-go',                     { 'for': 'go' }
 
   " HTML
-  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'css'] }
+  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'css', 'laravel'] }
   Plug  'othree/html5.vim',                 { 'for': 'html' }
   Plug  'Valloric/MatchTagAlways',          { 'for': ['html', 'css'] }
 
@@ -68,7 +69,7 @@ filetype plugin indent on
 
 set conceallevel=0
 set linespace=2                 " Increase line-height
-set nowrap                      " No line break
+set wrap                        " No line break
 " set relativenumber              " Enable relative line numbers
 set ruler                       " Enable line and row of the cursor
 set number                      " Enable Line numbers
@@ -202,6 +203,8 @@ set foldenable					  " Enable folding
 set foldcolumn=0          " Disable foldcolum
 set foldmethod=marker		  " Fold based on marker
 set foldlevelstart=20
+
+nnoremap <c-z> <nop>
 
 nnoremap <space> za				" Space Open/Closes folds
 
@@ -417,6 +420,7 @@ map <leader>a :call RunAllSpecs()<CR>
 " let g:syntastic_javascript_checkers = ['standard']
 " autocmd bufwritepost *.js silent !standard --fix %
 autocmd BufRead,BufNewFile *.vue setlocal filetype=html
+autocmd BufRead,BufNewFile *.blade.php set filetype=html
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
