@@ -28,3 +28,4 @@ unset _old_path
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.npm-packages/bin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
