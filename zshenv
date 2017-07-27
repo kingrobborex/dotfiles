@@ -30,4 +30,3 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.npm-packages/bin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
-export SSH_ASKPASS="/usr/bin/ksshaskpass"
