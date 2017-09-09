@@ -37,10 +37,13 @@ call plug#begin('~/.vim/plugged')
   Plug  'jgdavey/tslime.vim'
   Plug  'KabbAmine/gulp-vim',                        { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
   Plug  'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
+  Plug  'noahfrederick/vim-composer',                { 'on': 'Composer' }
   Plug  'patrickkettner/bower.vim',                  { 'on': 'Bower' }
+  Plug  'scrooloose/nerdcommenter'
   Plug  'tpope/vim-dispatch'
   Plug  'tpope/vim-endwise'
   Plug  'tpope/vim-fugitive'
+  Plug  'tpope/vim-projectionist'
   Plug  'tpope/vim-surround'
   Plug  'vim-scripts/npm.vim'
   Plug  'trkw/yarn.vim'
@@ -55,13 +58,19 @@ call plug#begin('~/.vim/plugged')
 
   Plug  'fatih/vim-go',                     { 'for': 'go' }
 
+  " CSS
+  Plug  'tpope/vim-haml',                   { 'for': ['sass', 'haml'] }
+
   " HTML
-  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'css', 'laravel'] }
+  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'css', 'php'] }
   Plug  'othree/html5.vim',                 { 'for': 'html' }
   Plug  'Valloric/MatchTagAlways',          { 'for': ['html', 'css'] }
 
   " Javascript
-  Plug  'posva/vim-vue',                    { 'for': 'html' }
+  Plug  'posva/vim-vue'
+
+  " PHP
+
 
 call plug#end()
 
@@ -419,8 +428,10 @@ map <leader>a :call RunAllSpecs()<CR>
 " Javascript / Syntastic
 " let g:syntastic_javascript_checkers = ['standard']
 " autocmd bufwritepost *.js silent !standard --fix %
-autocmd BufRead,BufNewFile *.vue setlocal filetype=html
-autocmd BufRead,BufNewFile *.blade.php set filetype=html
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+autocmd BufRead,BufNewFile *.blade.php set filetype=php.html.javascript.css
+
+autocmd FileType vue syntax sync fromstart
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
