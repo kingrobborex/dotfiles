@@ -13,3 +13,5 @@
 	name = Robert Forbes
 [github]
 	user = RobertJames
+[core]
+	editor = vim
