@@ -25,52 +25,54 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " Colors
-  Plug  'flazz/vim-colorschemes'
-  Plug  'NLKNguyen/papercolor-theme'
-  Plug  'AlessandroYorba/Alduin'
-  Plug  'ap/vim-css-color'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'AlessandroYorba/Alduin'
+  Plug 'ap/vim-css-color'
 
   " System
-  Plug  'ain/vim-capistrano'
-  Plug  'christoomey/vim-tmux-navigator'
-  Plug  'editorconfig/editorconfig-vim'
-  Plug  'jgdavey/tslime.vim'
-  Plug  'KabbAmine/gulp-vim',                        { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
-  Plug  'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
-  Plug  'noahfrederick/vim-composer',                { 'on': 'Composer' }
-  Plug  'patrickkettner/bower.vim',                  { 'on': 'Bower' }
-  Plug  'scrooloose/nerdcommenter'
-  Plug  'tpope/vim-dispatch'
-  Plug  'tpope/vim-endwise'
-  Plug  'tpope/vim-fugitive'
-  Plug  'tpope/vim-projectionist'
-  Plug  'tpope/vim-surround'
-  Plug  'vim-scripts/npm.vim'
-  Plug  'trkw/yarn.vim'
-  Plug  'w0rp/ale'
+  Plug 'ain/vim-capistrano'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'jgdavey/tslime.vim'
+  Plug 'KabbAmine/gulp-vim',                        { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
+  Plug 'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
+  Plug 'patrickkettner/bower.vim',                  { 'on': 'Bower' }
+  Plug 'tpope/vim-dispatch'
+  Plug 'tpope/vim-dotenv'
+  Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-projectionist'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-tbone'
+  Plug 'vim-scripts/npm.vim'
+  Plug 'trkw/yarn.vim'
+  Plug 'w0rp/ale'
 
   " UI
-  Plug  'ervandew/supertab'
-  Plug  'scrooloose/nerdtree',              { 'on': 'NERDTreeToggle' }
-  Plug  'vim-airline/vim-airline'
-  Plug  'vim-airline/vim-airline-themes'
-  Plug  'Xuyuanp/nerdtree-git-plugin'
+  Plug 'ervandew/supertab'
+  Plug 'scrooloose/nerdtree',             { 'on': 'NERDTreeToggle' }
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
 
-  Plug  'fatih/vim-go',                     { 'for': 'go' }
+  Plug 'fatih/vim-go',                    { 'for': 'go' }
 
   " CSS
   Plug  'tpope/vim-haml',                   { 'for': ['sass', 'haml'] }
 
   " HTML
-  Plug  'mattn/emmet-vim',                  { 'for': ['html', 'css', 'php'] }
-  Plug  'othree/html5.vim',                 { 'for': 'html' }
-  Plug  'Valloric/MatchTagAlways',          { 'for': ['html', 'css'] }
+  Plug 'mattn/emmet-vim',                 { 'for': ['html', 'css', 'laravel'] }
+  Plug 'othree/html5.vim',                { 'for': 'html' }
+  Plug 'Valloric/MatchTagAlways',         { 'for': ['html', 'css'] }
 
   " Javascript
-  Plug  'posva/vim-vue'
+  Plug 'posva/vim-vue',                   { 'for': 'html' }
 
-  " PHP
-
+  " Ruby
+  Plug 'tpope/vim-rails',                 { 'for': 'ruby' }
+  Plug 'tpope/vim-rake',                  { 'for': 'ruby' }
+  Plug 'tpope/vim-rbenv',                 { 'for': 'ruby' }
 
 call plug#end()
 
