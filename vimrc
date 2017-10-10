@@ -34,10 +34,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'ain/vim-capistrano'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'godlygeek/tabular'
   Plug 'jgdavey/tslime.vim'
   Plug 'KabbAmine/gulp-vim',                        { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
   Plug 'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
   Plug 'patrickkettner/bower.vim',                  { 'on': 'Bower' }
+  Plug 'plasticboy/vim-markdown',                   { 'for': 'markdown' }
+  Plug 'vim-syntastic/syntastic'
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-dotenv'
   Plug 'tpope/vim-endwise'
@@ -47,7 +50,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-tbone'
   Plug 'vim-scripts/npm.vim'
   Plug 'trkw/yarn.vim'
-  Plug 'w0rp/ale'
+  Plug 'valloric/youcompleteme'
 
   " UI
   Plug 'ervandew/supertab'
@@ -68,8 +71,11 @@ call plug#begin('~/.vim/plugged')
 
   " Javascript
   Plug 'posva/vim-vue',                   { 'for': 'html' }
+  Plug 'quramy/tsuquyomi'
+  Plug 'leafgarland/typescript-vim'
 
   " Ruby
+  Plug 'tpope/vim-bundler',               { 'on': 'Bundle' }
   Plug 'tpope/vim-rails',                 { 'for': 'ruby' }
   Plug 'tpope/vim-rake',                  { 'for': 'ruby' }
   Plug 'tpope/vim-rbenv',                 { 'for': 'ruby' }
@@ -427,9 +433,27 @@ map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>a :call RunAllSpecs()<CR>
 
+" YouCompleteMe
+if !exists("g:ycm_semantic_triggers")
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+
 " Javascript / Syntastic
 " let g:syntastic_javascript_checkers = ['standard']
 " autocmd bufwritepost *.js silent !standard --fix %
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:systastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " Don't use 'tsc'
+
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 autocmd BufRead,BufNewFile *.blade.php set filetype=php.html.javascript.css
 
