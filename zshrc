@@ -49,12 +49,13 @@ done
 autoload -U add-zsh-hook
 
 ###-tns-completion-start-###
-if [ -f /home/robert/.tnsrc ]; then
-    source /home/robert/.tnsrc
+if [ -f $HOME/.tnsrc ]; then
+    source $HOME/.tnsrc
 fi
 ###-tns-completion-end-###
 
 # added by travis gem
-[ -f /home/robert/.travis/travis.sh ] && source /home/robert/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-[ -f /home/robert/.asdf/asdf.sh ] && source /home/robert/.asdf/asdf.sh
+[ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
+
