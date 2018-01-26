@@ -40,7 +40,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
   Plug 'patrickkettner/bower.vim',                  { 'on': 'Bower' }
   Plug 'plasticboy/vim-markdown',                   { 'for': 'markdown' }
-  Plug 'vim-syntastic/syntastic'
+  Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-dotenv'
   Plug 'tpope/vim-endwise'
@@ -51,6 +51,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/npm.vim'
   Plug 'trkw/yarn.vim'
   Plug 'valloric/youcompleteme'
+  Plug 'w0rp/ale'
 
   " UI
   Plug 'ervandew/supertab'
@@ -221,8 +222,6 @@ set foldcolumn=0          " Disable foldcolum
 set foldmethod=marker		  " Fold based on marker
 set foldlevelstart=20
 
-nnoremap <c-z> <nop>
-
 nnoremap <space> za				" Space Open/Closes folds
 
 nnoremap gp `[v`]
@@ -242,6 +241,9 @@ nnoremap <leader>sx :CloseSession<CR>
 " sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,resize,slash,tabpages,unix,winpos,winsize
 
 "" Mapping
+
+
+let g:EditorConfig_core_mode = "external_command"
 
 " Get off my lawn
 nnoremap <Left>  :echoe "Use h"<CR>
@@ -391,7 +393,6 @@ let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 
 " Emmet
-let g:user_emmet_leader_key='<C-Z>'
 
 " Gist
 let g:gist_clip_command              = 'xclip -selection clipboard'
@@ -438,21 +439,6 @@ if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
-
-" Javascript / Syntastic
-" let g:syntastic_javascript_checkers = ['standard']
-" autocmd bufwritepost *.js silent !standard --fix %
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:systastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi'] " Don't use 'tsc'
 
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 autocmd BufRead,BufNewFile *.blade.php set filetype=php.html.javascript.css
