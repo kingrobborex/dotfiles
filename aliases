@@ -15,8 +15,5 @@ alias grip='grep --color=auto'
 alias mkdir="mkdir -p"
 alias mv='mv -i'
 
-# Rails
-alias migrate="bundle exec rake db:migrate db:rollback && bundle exec rake db:migrate"
-
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
