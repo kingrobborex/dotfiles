@@ -52,6 +52,11 @@ autoload -U add-zsh-hook
 if [ -f $HOME/.tnsrc ]; then
     source $HOME/.tnsrc
 fi
+
+export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.npm-packages/bin/:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin/:$PATH"
+
 ###-tns-completion-end-###
 
 # added by travis gem

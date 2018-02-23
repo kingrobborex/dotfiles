@@ -75,6 +75,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'quramy/tsuquyomi'
   Plug 'leafgarland/typescript-vim'
 
+  Plug 'joonty/vdebug'
+
   " Ruby
   Plug 'tpope/vim-bundler',               { 'on': 'Bundle' }
   Plug 'tpope/vim-rails',                 { 'for': 'ruby' }
@@ -410,6 +412,24 @@ let g:NERDTreeAutoDeleteBuffer  = 0
 let g:NERDTreeMinimalUI         = 1
 let g:NERDTreeWinSize           = 20
 let g:NERDTreeShowGitStatus     = 1
+
+" vDebug
+let g:vdebug_options= {
+\ "port": '9000',
+\ "server": '',
+\ "timeout": 20,
+\ "on_close": 'detach',
+\ "break_on_open": 1,
+\ "ide_key": '',
+\ "path_maps": {"/www/": "/home/robert/.vvv/www/" },
+\ "debug_window_level": 0,
+\ "debug_file_level": 0,
+\ "debug_file": "",
+\ "watch_window_style": 'expanded',
+\ "marker_default" : '⬦',
+\ "marker_closed_tree" : '▸',
+\ "marker_open_tree" : '▾',
+\}
 
 "" Functions
 
