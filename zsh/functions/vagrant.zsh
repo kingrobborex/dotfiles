@@ -1,3 +1,3 @@
 function homestead() {
-  ( cd ~/Homestead && vagrant $* )
+  ( cd ~/.homestead && vagrant $* )
 }
