@@ -1,4 +1,4 @@
-# RobertJames / RoboticDinosaur Dotfiles
+# RoboticDinosaur Dotfiles
 
 ## Requirements
 
@@ -10,7 +10,7 @@ Set ZSH as your login shell:
 
 Clone to your system:
 
-    git clone git://github.com/RobertJames/dotfiles.git ~/.dotfiles
+    git clone git://github.com/RoboticDinosaur/dotfiles.git ~/.dotfiles
 
 Install [RCM](https://github.com/thoughtbot/rcm):
 
