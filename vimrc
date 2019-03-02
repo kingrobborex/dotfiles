@@ -36,9 +36,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'editorconfig/editorconfig-vim'
   Plug 'godlygeek/tabular'
   Plug 'jgdavey/tslime.vim'
-  Plug 'KabbAmine/gulp-vim',                        { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
-  Plug 'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
-  Plug 'patrickkettner/bower.vim',                  { 'on': 'Bower' }
+"  Plug 'KabbAmine/gulp-vim',                        { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
+"  Plug 'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
+"  Plug 'patrickkettner/bower.vim',                  { 'on': 'Bower' }
   Plug 'plasticboy/vim-markdown',                   { 'for': 'markdown' }
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-dispatch'
@@ -48,10 +48,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-projectionist'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-tbone'
-  Plug 'vim-scripts/npm.vim'
-  Plug 'trkw/yarn.vim'
-  Plug 'valloric/youcompleteme'
-  Plug 'w0rp/ale'
+"  Plug 'vim-scripts/npm.vim'
+"  Plug 'trkw/yarn.vim'
+"  Plug 'valloric/youcompleteme'
+"  Plug 'w0rp/ale'
 
   " UI
   Plug 'ervandew/supertab'
@@ -459,6 +459,7 @@ if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
+let g:ycm_max_diagnostics_to_display = 10
 
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 autocmd BufRead,BufNewFile *.blade.php set filetype=php.html.javascript.css
