@@ -1,12 +1,8 @@
 # ~/.ssh/config
-
-Host endor
-  HostName endor.roboticdinosaur.co.uk
-  ForwardAgent yes
-  ForwardX11 yes
+Host gitlab.com
+  HostName gitlab.com
+  IdentityFile /home/robert/.ssh/personal
 
 Host github.com
-  ForwardAgent yes
-
-Host bitbucket.org
-  ForwardAgent yes
+  HostName github.com
+  IdentityFile /home/robert/.ssh/personal
