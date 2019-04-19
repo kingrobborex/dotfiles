@@ -48,6 +48,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-projectionist'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-tbone'
+  Plug 'tpope/vim-vinegar'
   Plug 'vim-scripts/npm.vim'
   Plug 'trkw/yarn.vim'
   Plug 'valloric/youcompleteme'
@@ -55,7 +56,6 @@ call plug#begin('~/.vim/plugged')
 
   " UI
   Plug 'ervandew/supertab'
-  Plug 'scrooloose/nerdtree',             { 'on': 'NERDTreeToggle' }
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'Xuyuanp/nerdtree-git-plugin'
