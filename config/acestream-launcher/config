@@ -1,0 +1,11 @@
+[DEFAULT]
+player = vlc
+verbose = true
+timeout = 60
+
+[tty]
+engine = acestreamengine --client-console --log-file ~/.ACEStream/engine.log
+
+[browser]
+engine = acestreamengine --client-gtk --log-file ~/.ACEStream/browser.log
+verbose = false
