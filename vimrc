@@ -36,9 +36,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'editorconfig/editorconfig-vim'
   Plug 'godlygeek/tabular'
   Plug 'jgdavey/tslime.vim'
-  Plug 'KabbAmine/gulp-vim',                        { 'on': ['Gulp', 'GulpExt', 'GulpFile', 'GulpTasks']} | Plug 'tope/vim-dispatch'
   Plug 'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
-  Plug 'patrickkettner/bower.vim',                  { 'on': 'Bower' }
   Plug 'plasticboy/vim-markdown',                   { 'for': 'markdown' }
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-dispatch'
@@ -50,7 +48,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-tbone'
   Plug 'tpope/vim-vinegar'
   Plug 'vim-scripts/npm.vim'
-  Plug 'trkw/yarn.vim'
   Plug 'valloric/youcompleteme'
   Plug 'w0rp/ale'
 
@@ -60,10 +57,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
+  " Go
   Plug 'fatih/vim-go',                    { 'for': 'go' }
-
-  " CSS
-  Plug  'tpope/vim-haml',                   { 'for': ['sass', 'haml'] }
 
   " HTML
   Plug 'mattn/emmet-vim',                 { 'for': ['html', 'css', 'laravel'] }
@@ -74,14 +69,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'posva/vim-vue',                   { 'for': 'html' }
   Plug 'quramy/tsuquyomi'
   Plug 'leafgarland/typescript-vim'
-
-  Plug 'joonty/vdebug'
-
-  " Ruby
-  Plug 'tpope/vim-bundler',               { 'on': 'Bundle' }
-  Plug 'tpope/vim-rails',                 { 'for': 'ruby' }
-  Plug 'tpope/vim-rake',                  { 'for': 'ruby' }
-  Plug 'tpope/vim-rbenv',                 { 'for': 'ruby' }
 
 call plug#end()
 
@@ -243,8 +230,6 @@ nnoremap <leader>sx :CloseSession<CR>
 " sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,resize,slash,tabpages,unix,winpos,winsize
 
 "" Mapping
-
-
 let g:EditorConfig_core_mode = "external_command"
 
 " Get off my lawn
@@ -407,29 +392,6 @@ let g:gist_use_password_in_gitconfig = 0
 
 " GoLang
 let $GOPATH = "/usr/bin/go"
-" Nerdtree
-let g:NERDTreeAutoDeleteBuffer  = 0
-let g:NERDTreeMinimalUI         = 1
-let g:NERDTreeWinSize           = 20
-let g:NERDTreeShowGitStatus     = 1
-
-" vDebug
-let g:vdebug_options= {
-\ "port": '9000',
-\ "server": '',
-\ "timeout": 20,
-\ "on_close": 'detach',
-\ "break_on_open": 1,
-\ "ide_key": '',
-\ "path_maps": {"/www/": "/home/robert/.vvv/www/" },
-\ "debug_window_level": 0,
-\ "debug_file_level": 0,
-\ "debug_file": "",
-\ "watch_window_style": 'expanded',
-\ "marker_default" : '⬦',
-\ "marker_closed_tree" : '▸',
-\ "marker_open_tree" : '▾',
-\}
 
 "" Functions
 
@@ -446,19 +408,12 @@ function! HtmlUnEscape()
   silent s/&amp;/\&/eg
 endfunction
 
-" RSpec.vim mappings
-
-let g:rspec_connand = 'call Send_to_Tmux("rspec {spec}\n")'
-map <leader>t :call RunCurrentSpecFile()<CR>
-map <leader>s :call RunNearestSpec()<CR>
-map <leader>l :call RunLastSpec()<CR>
-map <leader>a :call RunAllSpecs()<CR>
-
 " YouCompleteMe
 if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
+let g:ycm_max_diagnostics_to_display = 10
 
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 autocmd BufRead,BufNewFile *.blade.php set filetype=php.html.javascript.css
