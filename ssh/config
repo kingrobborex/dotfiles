@@ -1,8 +1,0 @@
-# ~/.ssh/config
-Host gitlab.com
-  HostName gitlab.com
-  IdentityFile /home/rjf/.ssh/personal
-
-Host github.com
-  HostName github.com
-  IdentityFile /home/rjf/.ssh/personal
