@@ -1,3 +1,5 @@
 vim/plugged/*
 *.swp
 .netrwhist
+bin/gop
+bin/update-framework
