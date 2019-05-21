@@ -63,4 +63,7 @@ export PATH="$HOME/.config/composer/vendor/bin/:$PATH"
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 [ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
-
+if [ -f /tmp/go-env.inc ]; then
+  . /tmp/go-env.inc
+  cd $GOPATH
+fi
