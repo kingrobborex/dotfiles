@@ -53,7 +53,7 @@ if [ -f $HOME/.tnsrc ]; then
     source $HOME/.tnsrc
 fi
 
-export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.npm-packages/bin/:$PATH"
 
 ###-tns-completion-end-###
