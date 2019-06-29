@@ -58,17 +58,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " Go
-  Plug 'fatih/vim-go',                    { 'for': 'go', 'do': ':GoUpdateBinaries' }
+  Plug 'fatih/vim-go',                    { 'do': ':GoUpdateBinaries' }
 
   " HTML
-  Plug 'mattn/emmet-vim',                 { 'for': ['html', 'css', 'laravel'] }
+  Plug 'mattn/emmet-vim',                 { 'for': ['html', 'css'] }
   Plug 'othree/html5.vim',                { 'for': 'html' }
   Plug 'Valloric/MatchTagAlways',         { 'for': ['html', 'css'] }
 
   " Javascript
   Plug 'posva/vim-vue',                   { 'for': 'html' }
   Plug 'quramy/tsuquyomi'
-  Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -389,9 +388,6 @@ let g:gist_show_privates             = 1
 let g:gist_get_multiplefile          = 1
 let g:gist_open_browser_after_post   = 0
 let g:gist_use_password_in_gitconfig = 0
-
-" GoLang
-let $GOPATH = "/usr/bin/go"
 
 "" Functions
 
