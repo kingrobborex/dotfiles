@@ -48,17 +48,3 @@ done
 
 autoload -U add-zsh-hook
 
-###-tns-completion-start-###
-if [ -f $HOME/.tnsrc ]; then
-    source $HOME/.tnsrc
-fi
-
-export PATH="$HOME/.bin/:$PATH"
-export PATH="$HOME/.npm-packages/bin/:$PATH"
-
-###-tns-completion-end-###
-
-# added by travis gem
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
-
-[ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
