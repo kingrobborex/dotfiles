@@ -55,7 +55,6 @@ fi
 
 export PATH="$HOME/.local/bin/:$PATH"
 export PATH="$HOME/.npm-packages/bin/:$PATH"
-export PATH="$HOME/.config/composer/vendor/bin/:$PATH"
 
 ###-tns-completion-end-###
 
@@ -63,4 +62,3 @@ export PATH="$HOME/.config/composer/vendor/bin/:$PATH"
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 [ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
-
