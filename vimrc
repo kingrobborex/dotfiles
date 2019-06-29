@@ -58,7 +58,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " Go
-  Plug 'fatih/vim-go',                    { 'for': 'go' }
+  Plug 'fatih/vim-go',                    { 'for': 'go', 'do': ':GoUpdateBinaries' }
 
   " HTML
   Plug 'mattn/emmet-vim',                 { 'for': ['html', 'css', 'laravel'] }
