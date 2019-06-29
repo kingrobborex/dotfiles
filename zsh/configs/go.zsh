@@ -1,4 +1,4 @@
 # Load Gopath
-export GOPATH="$HOME/code/go"
+export GOPATH="$HOME/devl/go"
 
 export PATH="$PATH:$GOPATH/bin"
