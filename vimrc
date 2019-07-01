@@ -58,7 +58,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " Go
-  Plug 'fatih/vim-go',                    { 'do': ':GoUpdateBinaries' }
+  Plug 'fatih/vim-go',                    { 'tag': 'v1.8', 'do': ':GoUpdateBinaries' }
 
   " HTML
   Plug 'mattn/emmet-vim',                 { 'for': ['html', 'css'] }
