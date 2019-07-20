@@ -49,5 +49,7 @@ alias mv='mv -i'
 # Print each PATH entry on a seperate line
 alias path='echo -e ${{PATH://:/\\n}'
 
+alias docker='podman'
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
