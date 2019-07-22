@@ -50,6 +50,7 @@ alias mv='mv -i'
 alias path='echo -e ${{PATH://:/\\n}'
 
 alias docker='podman'
+alias tmux='direnv exec / tmux'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
