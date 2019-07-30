@@ -45,6 +45,4 @@ done
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-
 autoload -U add-zsh-hook
-
