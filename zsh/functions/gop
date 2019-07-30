@@ -1,0 +1,24 @@
+function mkgop {
+  TRAPINT() {
+    print "Caught SIGINT, aborting."
+    return $(( 128 + $1 ))
+  }
+  echo 'Creating new Go project:'
+  if [ -n "$1" ]; then
+    project=$1
+  else
+    while [[ -z "$project" ]]; do
+      vared -p 'Project name: ' -c project;
+    done
+  fi
+  while true; do
+    vared -p 'Project namespace: ' -c namespace;
+    if [ -n "$namespace" ]; then
+      break
+    fi
+  done
+  mkdir -p $project/src/$namespace/$project
+  git init -q $project/src/$namespace/$project
+  echo 'layout golang' >> $project/.envrc
+  direnv allow $project
+}
