@@ -27,7 +27,6 @@ call plug#begin('~/.vim/plugged')
 " Colors
   Plug 'flazz/vim-colorschemes'
   Plug 'NLKNguyen/papercolor-theme'
-  Plug 'AlessandroYorba/Alduin'
   Plug 'ap/vim-css-color'
 
   " System
@@ -39,6 +38,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
   Plug 'plasticboy/vim-markdown',                   { 'for': 'markdown' }
   Plug 'sheerun/vim-polyglot'
+  Plug 'https://github.com/shougo/deoplete.nvim'
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-dotenv'
   Plug 'tpope/vim-endwise'
@@ -48,7 +48,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-tbone'
   Plug 'tpope/vim-vinegar'
   Plug 'vim-scripts/npm.vim'
-  Plug 'valloric/youcompleteme'
   Plug 'w0rp/ale'
 
   " UI
@@ -227,9 +226,6 @@ nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sx :CloseSession<CR>
 " sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,resize,slash,tabpages,unix,winpos,winsize
-
-"" Mapping
-let g:EditorConfig_core_mode = "external_command"
 
 " Get off my lawn
 nnoremap <Left>  :echoe "Use h"<CR>

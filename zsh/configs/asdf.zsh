@@ -6,4 +6,5 @@ if [ -d "$HOME/.asdf" ]; then
   . $HOME/.asdf/asdf.sh
   . $HOME/.asdf/completions/asdf.bash
 fi
- 
+
+eval "$(asdf exec direnv hook zsh)"

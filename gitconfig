@@ -14,4 +14,8 @@
 [core]
 	editor = vim
 [color]
-	ui = auto
+  ui = auto
+[url "https://apps.gurusys.co.uk/gerrit/a/"]
+	insteadOf = golang.gurusys.co.uk/
+[credential]
+	helper = store
