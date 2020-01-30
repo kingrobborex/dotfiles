@@ -30,12 +30,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'ap/vim-css-color'
 
   " System
-  Plug 'ain/vim-capistrano'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'godlygeek/tabular'
   Plug 'jgdavey/tslime.vim'
-  Plug 'mattn/webapi-vim' | Plug  'mattn/gist-vim', { 'on': 'Gist'}
   Plug 'plasticboy/vim-markdown',                   { 'for': 'markdown' }
   Plug 'sheerun/vim-polyglot'
   Plug 'https://github.com/shougo/deoplete.nvim'
@@ -57,7 +54,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " Go
-  Plug 'fatih/vim-go',                    { 'tag': 'v1.8', 'do': ':GoUpdateBinaries' }
+  "  Plug 'fatih/vim-go',                    { 'tag': 'v1.8', 'do': ':GoUpdateBinaries'
+  Plug 'govim/govim'
 
   " HTML
   Plug 'mattn/emmet-vim',                 { 'for': ['html', 'css'] }
@@ -377,15 +375,6 @@ let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 
 " Emmet
-
-" Gist
-let g:gist_clip_command              = 'xclip -selection clipboard'
-let g:gist_detect_filetype           = 1
-let g:gist_post_private              = 1
-let g:gist_show_privates             = 1
-let g:gist_get_multiplefile          = 1
-let g:gist_open_browser_after_post   = 0
-let g:gist_use_password_in_gitconfig = 0
 
 "" Functions
 
