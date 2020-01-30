@@ -65,6 +65,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'Valloric/MatchTagAlways',         { 'for': ['html', 'css'] }
 
   " Javascript
+  Plug 'mxw/vim-jsx'
+  Plug 'pangloss/vim-javascript'
   Plug 'posva/vim-vue',                   { 'for': 'html' }
   Plug 'quramy/tsuquyomi'
 
