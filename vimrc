@@ -25,37 +25,25 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " Colors
-  Plug 'flazz/vim-colorschemes'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'ap/vim-css-color'
 
   " System
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'jgdavey/tslime.vim'
   Plug 'plasticboy/vim-markdown',                   { 'for': 'markdown' }
-  Plug 'sheerun/vim-polyglot'
-  Plug 'https://github.com/shougo/deoplete.nvim'
-  Plug 'tpope/vim-dispatch'
-  Plug 'tpope/vim-dotenv'
-  Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-projectionist'
-  Plug 'tpope/vim-surround'
   Plug 'tpope/vim-tbone'
   Plug 'tpope/vim-vinegar'
   Plug 'vim-scripts/npm.vim'
-  Plug 'w0rp/ale'
 
   " UI
-  Plug 'ervandew/supertab'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " Go
   "  Plug 'fatih/vim-go',                    { 'tag': 'v1.8', 'do': ':GoUpdateBinaries'
-  Plug 'govim/govim'
+  Plug 'govim/govim',											{ 'for': 'go' }
 
   " HTML
   Plug 'mattn/emmet-vim',                 { 'for': ['html', 'css'] }
@@ -63,10 +51,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'Valloric/MatchTagAlways',         { 'for': ['html', 'css'] }
 
   " Javascript
-  Plug 'mxw/vim-jsx'
-  Plug 'pangloss/vim-javascript'
+  Plug 'yuezk/vim-js'
+  " Plug 'vim-javascript'
+  Plug 'herringtondarkholme/yats.vim'
+  Plug 'maxmellon/vim-jsx-pretty'
   Plug 'posva/vim-vue',                   { 'for': 'html' }
-  Plug 'quramy/tsuquyomi'
+
+  " Language server
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/vim-lsp'
 
 call plug#end()
 
@@ -126,13 +119,12 @@ syntax on                 " Syntax Highlighting
 
 
 set background=dark       " Colorscheme
-colorscheme Tomorrow-Night
+colorscheme PaperColor
 
 if has("gui_running")
   set guioptions-=T           " Removes top toolbar
   set guioptions-=r           " Removes right hand scrollbar
   set go-=L                   " Removes left hand scroll bar
-  colorscheme duotone-darksea
 endif
 
 "" General Settings
@@ -363,7 +355,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'papercolor'
 let g:airline#extensions#tabline#enabled = 0
 
 let g:airline#extensions#branch#empty_message = "No SCM"
