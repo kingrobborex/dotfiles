@@ -36,6 +36,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-tbone'
   Plug 'tpope/vim-vinegar'
   Plug 'vim-scripts/npm.vim'
+  Plug 'dense-analysis/ale'
+
+  if has('nvim')
+    Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
+  else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  endif
 
   " UI
   Plug 'vim-airline/vim-airline'
@@ -367,6 +376,39 @@ let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 
 " Emmet
+" vim-jsx-pretty
+let g:vim_jsx_pretty_highlight_close_tag = 1
+
+" ale
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+			\ 'vue': ['eslint']
+			\}
+
+let g:ale_fixers = {
+			\ 'javascript': ['prettier'],
+			\ 'typescript': ['prettier', 'tslint'],
+			\ 'vue': ['eslint'],
+			\ 'scss': ['prettier'],
+			\ 'html': ['prettier'],
+			\ 'reason': ['refmt']
+			\}
+let g:ale_fix_on_save = 1
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('sources', {
+      \ '_': 'ale'
+      \})
+
+
+" Prettier
+au FileType javascript setlocal formatprg=prettier
+au FileType javascript.jsz setlocal formatprg=prettier
+au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+au FileType html setlocal formatprg=js-beautify\ --type\ html
+au FileType scss setlocal formatprg=prettier\ --parser\ css
+au FileType css setlocal formatprg=prettier\ --parser\ css
 
 "" Functions
 
@@ -382,13 +424,6 @@ function! HtmlUnEscape()
   silent s/&gt;/>/eg
   silent s/&amp;/\&/eg
 endfunction
-
-" YouCompleteMe
-if !exists("g:ycm_semantic_triggers")
-  let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers['typescript'] = ['.']
-let g:ycm_max_diagnostics_to_display = 10
 
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 autocmd BufRead,BufNewFile *.blade.php set filetype=php.html.javascript.css
