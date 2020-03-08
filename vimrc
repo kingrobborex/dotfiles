@@ -390,7 +390,6 @@ let g:ale_fixers = {
 			\ 'typescript': ['prettier', 'tslint'],
 			\ 'vue': ['eslint'],
 			\ 'scss': ['prettier'],
-			\ 'html': ['prettier'],
 			\ 'reason': ['refmt']
 			\}
 let g:ale_fix_on_save = 1
@@ -406,7 +405,6 @@ call deoplete#custom#option('sources', {
 au FileType javascript setlocal formatprg=prettier
 au FileType javascript.jsz setlocal formatprg=prettier
 au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-au FileType html setlocal formatprg=js-beautify\ --type\ html
 au FileType scss setlocal formatprg=prettier\ --parser\ css
 au FileType css setlocal formatprg=prettier\ --parser\ css
 
