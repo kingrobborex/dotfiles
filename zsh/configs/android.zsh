@@ -34,3 +34,5 @@ fi
 if [ -z "${ANDROID_NDK_PLATFORM}" ]; then
     export ANDROID_NDK_PLATFORM=android-$ANDROID_MINIMUM_PLATFORM
 fi
+
+export PATH=$PATH:$ANDROID_HOME/emulator

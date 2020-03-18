@@ -381,16 +381,15 @@ let g:vim_jsx_pretty_highlight_close_tag = 1
 
 " ale
 let g:ale_linters_explicit = 1
+
 let g:ale_linters = {
-			\ 'vue': ['eslint']
+			\ 'javascript': ['prettier', 'eslint']
 			\}
 
 let g:ale_fixers = {
-			\ 'javascript': ['prettier'],
+			\ 'javascript': ['prettier', 'eslint'],
 			\ 'typescript': ['prettier', 'tslint'],
-			\ 'vue': ['eslint'],
 			\ 'scss': ['prettier'],
-			\ 'html': ['prettier'],
 			\ 'reason': ['refmt']
 			\}
 let g:ale_fix_on_save = 1
@@ -404,9 +403,9 @@ call deoplete#custom#option('sources', {
 
 " Prettier
 au FileType javascript setlocal formatprg=prettier
-au FileType javascript.jsz setlocal formatprg=prettier
+au FileType javascript.jsx setlocal formatprg=prettier
 au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-au FileType html setlocal formatprg=js-beautify\ --type\ html
+" au FileType html setlocal formatprg=js-beautify\ --type\ html
 au FileType scss setlocal formatprg=prettier\ --parser\ css
 au FileType css setlocal formatprg=prettier\ --parser\ css
 

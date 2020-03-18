@@ -46,9 +46,3 @@ done
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 autoload -U add-zsh-hook
-
-###-tns-completion-start-###
-if [ -f /home/rjf/.tnsrc ]; then 
-    source /home/rjf/.tnsrc 
-fi
-###-tns-completion-end-###
