@@ -13,7 +13,6 @@ fi
 
 # Shortcuts
 alias dl="cd ~/Downloads"
-alias code="cd ~/code"
 alias g="git"
 
 # Detect which `ls` flavor is in use
