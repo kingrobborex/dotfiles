@@ -8,3 +8,5 @@ if [ -d "$HOME/.asdf" ]; then
 fi
 
 eval "$(asdf exec direnv hook zsh)"
+
+. $HOME/.asdf/plugins/java/set-java-home.zsh
