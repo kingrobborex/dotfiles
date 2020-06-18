@@ -383,7 +383,8 @@ let g:vim_jsx_pretty_highlight_close_tag = 1
 let g:ale_linters_explicit = 1
 
 let g:ale_linters = {
-			\ 'javascript': ['prettier', 'eslint']
+			\ 'javascript': ['prettier', 'eslint'],
+			\ 'python': ['flake8', 'pylint'],
 			\}
 
 let g:ale_fixers = {
