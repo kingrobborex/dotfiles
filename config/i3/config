@@ -37,6 +37,7 @@ exec --no-startup-id nm-pavucontrol
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
+<<<<<<< HEAD
 exec --no-startyo-id megasync
 exec --no-startup-id dropbox start -i
 exec --no-startup-id insync
