@@ -163,7 +163,7 @@ assign [class="(?i)thunderbird"] $ws2
 assign [class="(?i)slack"] $ws2
 assign [class="(?i)signal"] $ws2
 
-assign [class="(?i)code-oss"] $ws3
+assign [class="(?i)code"] $ws3
 assign [class="(?i)android-studio"] $ws3
 
 assign [class="(?i)glimpse"] $ws5
@@ -209,7 +209,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "open app" {
-	bindsym f exec firefox, mode "default"
+	bindsym f exec firefox-developer-edition, mode "default"
 	bindsym s exec spotify, mode "default"
 	bindsym t exec thunderbird, mode "default"
 	bindsym c exec code, mode "default"
