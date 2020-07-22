@@ -27,3 +27,6 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+[user]
+	email = robert@roboticdinosaur.co.uk
+	name = Robert Forbes
