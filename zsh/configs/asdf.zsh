@@ -1,7 +1,7 @@
-# load ASDF, falling back to rbenv if not available
+# load ASDF
 if [ -d "$HOME/.asdf" ]; then
-  autoload -Uz compinit
-  compinit
+  autoload -Uz bashcompinit
+  bashcompinit
 
   . $HOME/.asdf/asdf.sh
   . $HOME/.asdf/completions/asdf.bash
