@@ -2,5 +2,7 @@
 fpath=(~/.zsh/completion /usr/share/zsh/site_function $fpath)
 
 # completion
-autoload -U compinit
-compinit
+autoload -Uz compinit
+compinit -C
+
+compdef -d mcd

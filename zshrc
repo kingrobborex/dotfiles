@@ -1,3 +1,8 @@
+# load custom executable functions
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
 # extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
 # these are loaded first, second, and third, respectively.
 _load_settings() {
@@ -34,15 +39,9 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
-# aliases
-[[ -f ~/.aliases ]] && source ~/.aliases
-
-# load custom executable functions
-for function in ~/.zsh/functions/*; do
-  source $function
-done
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-autoload -U add-zsh-hook
+# aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
