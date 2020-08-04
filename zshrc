@@ -45,3 +45,9 @@ _load_settings "$HOME/.zsh/configs"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+###-tns-completion-start-###
+if [ -f /home/rjf/.tnsrc ]; then 
+    source /home/rjf/.tnsrc 
+fi
+###-tns-completion-end-###
