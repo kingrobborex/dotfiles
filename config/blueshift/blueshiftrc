@@ -198,7 +198,7 @@ temperature_day, temperature_night = [6500], [3700]
 
 # Colour brightness at high day and high night, respectively.
 # This setting uses the CIE xyY colour space for calculating values.
-brightness_day, brightness_night = [1], [1]
+brightness_day, brightness_night = [1], [0.5]
 
 # Colour brightness of the red, green and blue components,
 # respectively, at high day and high night, respectively.
