@@ -1,22 +1,25 @@
-output DVI-D-0
+output DP1
 off
-output HDMI-0
+output DP1-3
 off
-output DP-0
+output DP2
 off
-output DP-1
+output HDMI1
 off
-output DP-3
+output HDMI2
 off
-output DP-5
+output VIRTUAL1
 off
-output DP-4
+output eDP1
+off
+output DP1-2
 crtc 0
 mode 1920x1080
 pos 0x0
+primary
 rate 60.00
-output DP-2
-crtc 1
+output DP1-1
+crtc 2
 mode 1920x1080
 pos 1920x0
 rate 60.00
