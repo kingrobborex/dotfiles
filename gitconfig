@@ -3,7 +3,7 @@
 [core]
 
 [init]
-  templatedir = ~/.git_template
+	templatedir = /home/rjf/.git_templates/git-secrets
 [push]
   default = current
 [color]
@@ -38,7 +38,5 @@
 	editor = vim
 [color]
   ui = auto
-[url "https://apps.gurusys.co.uk/gerrit/a/"]
-	insteadOf = golang.gurusys.co.uk/
 [credential]
 	helper = store
