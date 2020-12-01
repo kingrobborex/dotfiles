@@ -36,7 +36,7 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id udiskie --no-automount --tray
 
-exec --no-startyo-id megasync
+exec --no-startup-id megasync
 exec --no-startup-id dropbox start -i
 exec --no-startup-id insync start
 
