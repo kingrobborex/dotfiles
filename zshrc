@@ -53,3 +53,9 @@ if [ -f /home/rjf/.tnsrc ]; then
     source /home/rjf/.tnsrc
 fi
 ###-tns-completion-end-###
+
+###-tns-completion-start-###
+if [ -f /home/rjf/.tnsrc ]; then 
+    source /home/rjf/.tnsrc 
+fi
+###-tns-completion-end-###
