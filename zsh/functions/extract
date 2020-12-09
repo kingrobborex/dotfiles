@@ -1,4 +1,4 @@
-extract_archive () {
+extract () {
     local old_dirs current_dirs lower
     lower=${(L)1}
     old_dirs=( *(N/) )
@@ -39,5 +39,5 @@ extract_archive () {
     done
 }
 
-alias ex=extract_archive
-compdef '_files -g "*.gz *.tgz *.bz2 *.tbz *.zip *.rar *.tar *.lha *.xz *.7z *.z"' extract_archive
+alias ex=extract
+compdef '_files -g "*.gz *.tgz *.bz2 *.tbz *.zip *.rar *.tar *.lha *.xz *.7z *.z"' extract
