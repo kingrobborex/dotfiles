@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+#export GIT_AUTHOR_NAME="${FULLNAME}"
+#export GIT_AUTHOR_EMAIL="${EMAIL}"
+#export GIT_COMMITTER_NAME="${FULLNAME}"
+#export GIT_COMMITTER_EMAIL="${EMAIL}"
+
+#----------
+
+laravel_init () {
+	curl -s https://laravel.build/${1} | sh
+
+}
+
+alias laravel=laravel_init
