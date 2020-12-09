@@ -13,3 +13,4 @@ laravel_init () {
 }
 
 alias laravel=laravel_init
+alias sail='sh vendor/bin/sail'
