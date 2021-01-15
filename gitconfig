@@ -2,8 +2,6 @@
   co = checkout
 [core]
 
-[init]
-	templatedir = /home/rjf/.git_templates/git-secrets
 [push]
   default = current
 [color]
