@@ -428,6 +428,7 @@ autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 autocmd BufRead,BufNewFile *.blade.php set filetype=php.html.javascript.css
 
 autocmd FileType vue syntax sync fromstart
+autocmd FileType gitcommit setlocal spell textwidth=72
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
