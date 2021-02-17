@@ -43,6 +43,7 @@ exec --no-startup-id insync start
 exec --no-startup-id start_conky_grey
 
 exec --no-startup-id slack
+exec --no-startup-id mattermost-desktop
 exec --no-startup-id thunderbird
 exec --no-startup-id firefox-developer-edition
 
@@ -164,6 +165,7 @@ assign [class="(?i)chrome"] $ws1
 assign [class="(?i)thunderbird"] $ws2
 assign [class="(?i)slack"] $ws2
 assign [class="(?i)signal"] $ws2
+assign [class="(?i)mattermost"] $ws2
 
 assign [class="(?i)code"] $ws3
 assign [class="(?i)android-studio"] $ws3
@@ -171,7 +173,7 @@ assign [class="(?i)android-studio"] $ws3
 assign [class="(?i)glimpse"] $ws5
 assign [class="(?i)inkscape"] $ws5
 assign [class="(?i)blender"] $ws5
-assign [class="(?i)figma-desktop"] $ws5
+assign [class="(?i)figm"] $ws4
 
 assign [class="(?i)libreoffice"] $ws6
 
