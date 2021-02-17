@@ -7,7 +7,7 @@ filetype off
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
@@ -25,50 +25,52 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " Colors
-  Plug 'NLKNguyen/papercolor-theme'
-  Plug 'ap/vim-css-color'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'ap/vim-css-color'
 
-  " System
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'editorconfig/editorconfig-vim'
-  Plug 'plasticboy/vim-markdown',                   { 'for': 'markdown' }
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-tbone'
-  Plug 'tpope/vim-vinegar'
-  Plug 'vim-scripts/npm.vim'
-  Plug 'dense-analysis/ale'
+" System
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'plasticboy/vim-markdown',                   { 'for': 'markdown' }
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-scripts/npm.vim'
+Plug 'dense-analysis/ale'
 
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
-  else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-  endif
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
-  " UI
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+Plug 'reedes/vim-wordy'
 
-  " Go
-  "  Plug 'fatih/vim-go',                    { 'tag': 'v1.8', 'do': ':GoUpdateBinaries'
-  Plug 'govim/govim',											{ 'for': 'go' }
+" UI
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-  " HTML
-  Plug 'mattn/emmet-vim',                 { 'for': ['html', 'css'] }
-  Plug 'othree/html5.vim',                { 'for': 'html' }
-  Plug 'Valloric/MatchTagAlways',         { 'for': ['html', 'css'] }
+" Go
+"  Plug 'fatih/vim-go',                    { 'tag': 'v1.8', 'do': ':GoUpdateBinaries'
+Plug 'govim/govim',											{ 'for': 'go' }
 
-  " Javascript
-  Plug 'yuezk/vim-js'
-  " Plug 'vim-javascript'
-  Plug 'herringtondarkholme/yats.vim'
-  Plug 'maxmellon/vim-jsx-pretty'
-  Plug 'posva/vim-vue',                   { 'for': 'html' }
+" HTML
+Plug 'mattn/emmet-vim',                 { 'for': ['html', 'css'] }
+Plug 'othree/html5.vim',                { 'for': 'html' }
+Plug 'Valloric/MatchTagAlways',         { 'for': ['html', 'css'] }
 
-  " Language server
-  Plug 'prabirshrestha/async.vim'
-  Plug 'prabirshrestha/vim-lsp'
+" Javascript
+Plug 'yuezk/vim-js'
+" Plug 'vim-javascript'
+Plug 'herringtondarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'posva/vim-vue',                   { 'for': 'html' }
+
+" Language server
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 
 call plug#end()
 
@@ -383,16 +385,16 @@ let g:vim_jsx_pretty_highlight_close_tag = 1
 let g:ale_linters_explicit = 1
 
 let g:ale_linters = {
-			\ 'javascript': ['prettier', 'eslint'],
-			\ 'python': ['flake8', 'pylint'],
-			\}
+      \ 'javascript': ['prettier', 'eslint'],
+      \ 'python': ['flake8', 'pylint'],
+      \}
 
 let g:ale_fixers = {
-			\ 'javascript': ['prettier', 'eslint'],
-			\ 'typescript': ['prettier', 'tslint'],
-			\ 'scss': ['prettier'],
-			\ 'reason': ['refmt']
-			\}
+      \ 'javascript': ['prettier', 'eslint'],
+      \ 'typescript': ['prettier', 'tslint'],
+      \ 'scss': ['prettier'],
+      \ 'reason': ['refmt']
+      \}
 let g:ale_fix_on_save = 1
 
 " Deoplete
@@ -423,6 +425,12 @@ function! HtmlUnEscape()
   silent s/&gt;/>/eg
   silent s/&amp;/\&/eg
 endfunction
+
+noremap <silent> <F8> :<C-u>NextWordy<cr>
+xnoremap <silent> <F8> :<C-u>NextWordy<cr>
+inoremap <silent> <F8> <C-o>:NextWordy<cr>
+
+" File formats
 
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 autocmd BufRead,BufNewFile *.blade.php set filetype=php.html.javascript.css
