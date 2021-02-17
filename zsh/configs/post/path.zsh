@@ -3,8 +3,8 @@ PATH="$HOME/.bin:/usr/local/sbin:$PATH"
 
 if [ -d "$HOME/.asdf" ]; then
   . $HOME/.asdf/asdf.sh
-#  . $HOME/.asdf/completions/asdf.bash
-#  . $HOME/.asdf/plugins/java/set-java-home.zsh
+  . $HOME/.asdf/completions/asdf.bash
+  . $HOME/.asdf/plugins/java/set-java-home.zsh
 fi
 
 #mkdir .git/safe in the root of repositories you trust
