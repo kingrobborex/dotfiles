@@ -38,14 +38,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/npm.vim'
 Plug 'dense-analysis/ale'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 Plug 'reedes/vim-wordy'
 
 " UI
@@ -396,13 +388,6 @@ let g:ale_fixers = {
       \ 'reason': ['refmt']
       \}
 let g:ale_fix_on_save = 1
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('sources', {
-      \ '_': 'ale'
-      \})
-
 
 " Prettier
 au FileType javascript setlocal formatprg=prettier
