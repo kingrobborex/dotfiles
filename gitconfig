@@ -38,3 +38,5 @@
   ui = auto
 [credential]
 	helper = store
+[init]
+	defaultBranch = main
