@@ -59,10 +59,18 @@ Plug 'yuezk/vim-js'
 Plug 'herringtondarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'posva/vim-vue',                   { 'for': 'html' }
+Plug 'lepture/vim-jinja'
 
 " Language server
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+
+" Ion support
+Plug 'vmchale/ion-vim'
+
+" Dart / Flutter
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
 
 call plug#end()
 
