@@ -24,5 +24,6 @@ indent_size				  = 2
 [Rakefile]
 indent_size				  = 2
 
-[*.md]
-indent_size				  = 4
+[*.{md,yaml}]
+indent_size				  = 2
+indent_type					= space
