@@ -173,7 +173,7 @@ assign [class="(?i)android-studio"] $ws3
 assign [class="(?i)glimpse"] $ws5
 assign [class="(?i)inkscape"] $ws5
 assign [class="(?i)blender"] $ws5
-assign [class="(?i)figm"] $ws4
+assign [class="(?i)figm"] $ws5
 
 assign [class="(?i)libreoffice"] $ws6
 
