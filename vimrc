@@ -72,6 +72,11 @@ Plug 'vmchale/ion-vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 
+" Linting
+Plug 'prettier/vim-prettier', {
+			\ 'do': 'npm i',
+			\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphsql', 'markdown', 'vue', 'yaml', 'html'] }
+
 call plug#end()
 
 filetype plugin indent on
@@ -182,7 +187,6 @@ set writebackup
 set noswapfile
 
 " Persistent (G)undo files between sessions
-set undofile
 set history=1000
 set undolevels=100
 
