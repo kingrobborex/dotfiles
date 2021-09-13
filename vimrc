@@ -37,6 +37,8 @@ Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/npm.vim'
 Plug 'dense-analysis/ale'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'reedes/vim-wordy'
 
@@ -426,6 +428,13 @@ endfunction
 noremap <silent> <F8> :<C-u>NextWordy<cr>
 xnoremap <silent> <F8> :<C-u>NextWordy<cr>
 inoremap <silent> <F8> <C-o>:NextWordy<cr>
+
+" NERDTree
+nnoremap ` :NERDTreeToggle<CR>
+nnoremap - :NERDTreeFocus<CR>
+
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists ('b:NERDTree') && b:NERDTree.isTabTree() |
+      \ quit | endif
 
 " File formats
 
