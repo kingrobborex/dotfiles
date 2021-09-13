@@ -11,7 +11,7 @@ charset                   = utf-8
 trim_trailing_whitespace  = true
 insert_final_newline      = true
 
-[*.{php,py}]
+[*.{php,py,rs}]
 indent_size         = 4
 indent_style				= spaces
 
@@ -26,4 +26,4 @@ indent_size				  = 2
 
 [*.{md,yaml,js}]
 indent_size				  = 2
-indent_type					= space
+indent_type					= spaces
