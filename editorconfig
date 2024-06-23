@@ -24,6 +24,6 @@ indent_size				  = 2
 [Rakefile]
 indent_size				  = 2
 
-[*.{md,yaml,js}]
+[*.{md,yml,yaml,js}]
 indent_size				  = 2
-indent_type					= spaces
+indent_style					= spaces
