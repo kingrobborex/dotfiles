@@ -26,6 +26,7 @@ endif
 call plug#begin('~/.vim/plugged')
 " Colors
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'ajmwagar/vim-deus'
 Plug 'ap/vim-css-color'
 
 " System
@@ -64,8 +65,10 @@ Plug 'posva/vim-vue',                   { 'for': 'html' }
 Plug 'lepture/vim-jinja'
 
 " Language server
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
 
 " Ion support
 Plug 'vmchale/ion-vim'
@@ -78,6 +81,10 @@ Plug 'thosakwe/vim-flutter'
 Plug 'prettier/vim-prettier', {
 			\ 'do': 'npm i',
 			\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphsql', 'markdown', 'vue', 'yaml', 'html'] }
+
+" Ruby / Rails
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
 
 call plug#end()
 
@@ -137,7 +144,7 @@ syntax on                 " Syntax Highlighting
 
 
 set background=dark       " Colorscheme
-colorscheme PaperColor
+colorscheme deus
 
 if has("gui_running")
   set guioptions-=T           " Removes top toolbar
@@ -372,7 +379,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme = 'papercolor'
+let g:airline_theme = 'deus'
 let g:airline#extensions#tabline#enabled = 0
 
 let g:airline#extensions#branch#empty_message = "No SCM"
@@ -435,6 +442,9 @@ nnoremap - :NERDTreeFocus<CR>
 
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists ('b:NERDTree') && b:NERDTree.isTabTree() |
       \ quit | endif
+
+" Language Server
+let g:lsc_auto_map = v:true
 
 " File formats
 
