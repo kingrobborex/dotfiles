@@ -9,5 +9,6 @@ fi
 #mkdir .git/safe in the root of repositories you trust
 PATH=".git/safe/../../bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
+PATH="$HOME/.pub-cache/bin:$PATH"
 
 export -U PATH
