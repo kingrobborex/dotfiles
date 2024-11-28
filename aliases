@@ -49,5 +49,7 @@ alias sudo='sudo -E'
 # Print each PATH entry on a seperate line
 alias path='echo -e ${{PATH://:/\\n}'
 
+alias docked='docker run --rm -it -v ${PWD}:/rails -u $(id -u):$(id -g) -v ruby-bundle-cache:/bundle -p 3000:3000 ghcr.io/rails/cli'
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
