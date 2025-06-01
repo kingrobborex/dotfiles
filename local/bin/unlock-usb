@@ -43,5 +43,7 @@ sudo mount "/dev/mapper/$MAPPERNAME" "$MOUNTPOINT" || {
   exit 1
 }
 
+sudo chown -R $(id -u):$(id -g) "$MOUNTPOINT"
+
 echo "Mounted at $MOUNTPOINT"
 
