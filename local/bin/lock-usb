@@ -23,4 +23,4 @@ else
 	echo "LUKS mapping $MAPPERNAME not found"
 fi
 
-notify-send "Secure USB" "Drive unmounted and locked"
+echo "Drive unmounted and locked"

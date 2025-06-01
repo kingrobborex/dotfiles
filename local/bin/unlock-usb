@@ -1,8 +1,4 @@
 #!/bin/bash
-
-exec >> /tmp/unlock-usb.log 2>&1
-echo "--- $(date) ---"
-
 UUID="9ef0516a-4ea3-4050-be94-b8cbe71ec7b9"
 MAPPERNAME="secureusb"
 MOUNTPOINT="$HOME/secureusb"
@@ -28,7 +24,6 @@ else
 	echo "Decrypting key..."
 	gpg --quiet --batch --decrypt "$KEYFILE" > "$KEY" || {
 		echo "Failed to decrypt key"
-		notify-send "Secure USB" "Decryption failed"
 		exit 1
 	}
 
@@ -48,6 +43,5 @@ sudo mount "/dev/mapper/$MAPPERNAME" "$MOUNTPOINT" || {
   exit 1
 }
 
-notify-send "Secure USB" "Mounted at $MOUNTPOINT"
 echo "Mounted at $MOUNTPOINT"
 
