@@ -54,3 +54,6 @@ if [ -f /home/rjf/.tnsrc ]; then
 fi
 ###-tns-completion-end-###
 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/roboticdinosaur/.lmstudio/bin"
