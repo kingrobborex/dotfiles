@@ -1,0 +1,26 @@
+#!/bin/bash
+MAPPERNAME="secureusb"
+MOUNTPOINT="$HOME/secureusb"
+
+if mountpoint -q "$MOUNTPOINT"; then
+	echo "Unmounting $MOUNTPOINT"
+	sudo umount "$MOUNTPOINT" || {
+		echo "Failed to unmount"
+		exit 1
+	}
+else
+	echo "$MOUNTPOINT is not mounted"
+fi
+
+# Close LUKS
+if [ -e "/dev/mapper/$MAPPERNAME" ]; then
+	echo "Closing LUKS device $MAPPERNAME"
+	sudo cryptsetup close "$MAPPERNAME" || {
+		echo "Failed to close LUKS device"
+		exit 1
+	}
+else
+	echo "LUKS mapping $MAPPERNAME not found"
+fi
+
+notify-send "Secure USB" "Drive unmounted and locked"
